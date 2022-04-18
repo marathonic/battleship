@@ -36,6 +36,12 @@ test("isSunk() repots status", () => {
   battleship.setLength();
   battleship.setCoordinates("F1", "F2", "F3", "F4");
   console.debug(battleship.getCoordinates());
+  expect(battleship.hit("F1")).toEqual(["F2", "F3", "F4"]);
+  battleship.hit("F2");
+  battleship.hit("F3");
+  console.debug(battleship.getCoordinates());
+  battleship.hit("F4");
+  expect(battleship.isSunk()).toBeTruthy();
 });
 
 // test('returns length', () => {

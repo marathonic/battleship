@@ -62,9 +62,9 @@ export class Ship {
   }
 
   isSunk() {
-    if (this.length === 0) return "sunk";
-    return `Ship hit. HP: ${this.length}`;
-    // this.length === 0 ? true : false;
+    // if (this.length === 0) return "sunk";
+    // return `Ship hit. HP: ${this.length}`;
+    this.shipSpans.length == 0 ? true : false;
   }
 
   getLength = () => this.length;
