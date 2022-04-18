@@ -17,9 +17,7 @@ test("ship gets hit if it contains coordinates", () => {
   let submarine = new Ship("submarine");
   submarine.setLength();
   submarine.setCoordinates("D1", "D2");
-  console.debug(submarine.getCoordinates());
   expect(submarine.hit("D2")).toEqual(["D1"]);
-  console.debug(submarine.getCoordinates());
 
   // expect(submarine.hit("D2")).toMatch("hit");
 });
@@ -35,13 +33,12 @@ test("isSunk() repots status", () => {
   let battleship = new Ship("battleship");
   battleship.setLength();
   battleship.setCoordinates("F1", "F2", "F3", "F4");
-  console.debug(battleship.getCoordinates());
   expect(battleship.hit("F1")).toEqual(["F2", "F3", "F4"]);
   battleship.hit("F2");
   battleship.hit("F3");
-  console.debug(battleship.getCoordinates());
   battleship.hit("F4");
-  expect(battleship.isSunk()).toBeTruthy();
+  expect(battleship.isSunk()).toMatch("sunk");
+  // expect(battleship.isSunk()).toBeTruthy(); <--- why doesn't this work??
 });
 
 // test('returns length', () => {

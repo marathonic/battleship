@@ -1,4 +1,4 @@
-// import { ShipFactory } from "./shipFactory";
+// import { ShipClass } from "./ShipClass.js";
 import "./style.css";
 
 function component() {

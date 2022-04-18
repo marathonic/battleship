@@ -2,6 +2,7 @@ export function ShipFactory(typeOfShip) {
   //
   let length;
   let shipModel;
+  let shipSpans = [];
 
   switch (typeOfShip) {
     case "destroyer":
@@ -19,7 +20,7 @@ export function ShipFactory(typeOfShip) {
       shipModel = "cruiser";
       break;
 
-    case "batlteship":
+    case "battleship":
       length = 4;
       shipModel = "battleship";
       break;

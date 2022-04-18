@@ -18,7 +18,7 @@ export class Ship {
         this.length = 3;
         break;
 
-      case "batlteship":
+      case "battleship":
         this.length = 4;
         break;
 
@@ -62,9 +62,10 @@ export class Ship {
   }
 
   isSunk() {
-    // if (this.length === 0) return "sunk";
+    if (this.length === 0) return "sunk";
+    return "not sunk";
     // return `Ship hit. HP: ${this.length}`;
-    this.shipSpans.length == 0 ? true : false;
+    // this.shipSpans.length == 0 ? true : false;
   }
 
   getLength = () => this.length;
