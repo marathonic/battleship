@@ -1,7 +1,8 @@
-export function ShipFactory(typeOfShip, ...coordinates) {
+export function ShipFactory(typeOfShip) {
   let length;
   let shipModel;
   let shipSpans = [];
+  let positionsHitArray = []; // <-- this array keeps track of positions hit
   let orientation = "horizontal";
 
   switch (typeOfShip) {
@@ -42,37 +43,50 @@ export function ShipFactory(typeOfShip, ...coordinates) {
   hp === [4, 3, 2, 1];
   //
 
-  //Give the ship the input coordinates
-  (function setCoordinates() {
-    let coordinateArray = coordinates;
-    coordinateArray.forEach((coordinate) => {
-      shipSpans.push(coordinate);
+  //if our hit function is getting called, we're assuming
+  //that the hit is a match, because it is GameBoard
+  //that is in charge of determining whether there is a ship there or not.
+
+  function hitPrev(strikePosition, callPlaceShipFromGameBoard) {
+    //the reason we're calling placeShip from Gameboard is
+    //Because we need to know the span of the ship in order to know
+    //Which spot on the board will be made inactive.
+
+    // maybe try using Promises so we can use await?
+    let callback = callPlaceShipFromGameBoard; // <-- is a coordinate array
+
+    length--;
+    let index = strikePosition;
+    let target = callback.indexOf(index);
+    // before, we were doing it like the line below, but now we're splicing.
+    // this.shipSpans[target] = "x"; <-- this.shipSpans == [untouched, 'x']
+
+    //now we just remove from the array the element that's been hit
+    callback.splice([target], 1); //<--this finally works!
+    //remove any undefined elements in array:
+    callback = callback.filter((element) => {
+      return element !== undefined;
     });
-    return shipSpans;
-  })();
+    return true;
+    //if (shipSpans.length === 0) return true;  <-- if health depleted, hit() => true
+    //return shipSpans;  <-- we should comment this out in favour of the above line.
+  }
 
-  const getCoordinates = () => shipSpans;
+  function getCoordinates() {
+    return this.coordinates;
+  }
 
-  function hit(strikePosition) {
-    if (shipSpans.includes(strikePosition)) {
-      length--;
-      let index = strikePosition;
-      let target = shipSpans.indexOf(index);
-      // before, we were doing it like the line below, but now we're splicing.
-      // this.shipSpans[target] = "x"; <-- this.shipSpans == [untouched, 'x']
-
-      //now we just remove from the array the element that's been hit
-      shipSpans.splice([target], 1); //<--this finally works!
-      //remove any undefined elements in array:
-      shipSpans = shipSpans.filter((element) => {
-        return element !== undefined;
-      });
-      return true;
-      //if (shipSpans.length === 0) return true;  <-- if health depleted, hit() => true
-      //return shipSpans;  <-- we should comment this out in favour of the above line.
-    } else {
-      return false; // <-- if calling hit() => false, register miss in Gameboard.
-    }
+  //<-- WHY WOULD THE SHIP FACTORY BE TRACKING POSITIONS HIT?
+  // <-- THAT'S A JOB FOR THE GAMEBOARD
+  function hit(coordinate) {
+    // <--- This always returns true on its own, that's okay!
+    // Because we only call this as a result of checking the board first.
+    // <-- an if check here is redundant, this will only fire based on an
+    // if condition inside of the Gameboard!
+    // in Gameboard: if(!positionsHitArray.includes(coordinate)), then run hit()
+    positionsHitArray.push(coordinate);
+    length--;
+    return true;
   }
 
   // function isSunk() {
@@ -85,7 +99,17 @@ export function ShipFactory(typeOfShip, ...coordinates) {
   //if the above works, uncomment the following and try:
   const isSunk = () => (length === 0 ? true : false);
 
-  return { orientation, hit, getLength, isSunk, getCoordinates };
+  const positionsHit = () => positionsHitArray;
+
+  return {
+    orientation,
+    hit,
+    getLength,
+    length,
+    isSunk,
+    getCoordinates,
+    positionsHit,
+  };
 
   // save for later:
   // const hit = (boardPosition) => {
