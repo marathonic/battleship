@@ -19,7 +19,8 @@ export function Gameboard() {
       }
       return existingShip.coordinates;
     },
-    hereBeShips: () => hereBeShips,
+    getHereBeShips: () => hereBeShips,
+    getPositionsHit: () => positionsHit,
     receiveAttack(coordie) {
       //hmmm, we need to figure out what ships the coordinate belongs to
       //OK I have an idea. When creating a ship, we're already pushing its
@@ -42,7 +43,7 @@ export function Gameboard() {
         //next, we trace it to the same index in the ShipsNames array
         let shipName = hereBeTheShipsNames[indexOfStrike];
 
-        hereBeShips.splice(hereBeShips[coordie], 1);
+        hereBeShips.splice(hereBeShips[coordie], 1); // <-- pay attention
         positionsHit.push(coordie);
         return `direct hit on ${shipName}`;
       } else {
