@@ -109,6 +109,7 @@ export function ShipFactory(typeOfShip) {
     isSunk,
     getCoordinates,
     positionsHit,
+    shipModel,
   };
 
   // save for later:
