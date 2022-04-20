@@ -10,7 +10,8 @@ export function Gameboard() {
     placeShip(existingShip, ...coords) {
       existingShip.coordinates = coords;
       //hereBeShips.push(coords); //<-- WE PUSH COORDS OF NEW SHIP TO HEREBESHIPS
-      hereBeShips = [...coords];
+      let thisShipsCoords = [...coords];
+      hereBeShips.push(thisShipsCoords);
       for (let i = 0; i < coords.length; i++) {
         hereBeTheShipsNames.push(existingShip.shipModel);
         // <-- ship's name is indexed as many times as its coordinates take spaces!
@@ -21,6 +22,11 @@ export function Gameboard() {
     },
     getHereBeShips: () => hereBeShips,
     getPositionsHit: () => positionsHit,
+    getShipsNames: () => hereBeTheShipsNames,
+    getFilteredShipNames() {
+      let unwrappedNames = [...hereBeTheShipsNames];
+      return unwrappedNames;
+    },
     receiveAttack(coordie) {
       //hmmm, we need to figure out what ships the coordinate belongs to
       //OK I have an idea. When creating a ship, we're already pushing its
@@ -41,10 +47,11 @@ export function Gameboard() {
         //next, find out what kind of ship it is
         let indexOfStrike = hereBeShips.indexOf(coordie);
         //next, we trace it to the same index in the ShipsNames array
-        let shipName = hereBeTheShipsNames[indexOfStrike];
-
+        let shipName = hereBeTheShipsNames[indexOfStrike]; // <--- is shipName a reference to its ship variable ? WE NEED A REFERENCE
+        //we mark the position as hit and update hereBeShips[]
         hereBeShips.splice(hereBeShips[coordie], 1); // <-- pay attention
         positionsHit.push(coordie);
+
         return `direct hit on ${shipName}`;
       } else {
         return "miss or repeat hit: receiveAttack returns an output";
