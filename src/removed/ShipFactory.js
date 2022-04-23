@@ -84,9 +84,13 @@ export function ShipFactory(typeOfShip) {
     // <-- an if check here is redundant, this will only fire based on an
     // if condition inside of the Gameboard!
     // in Gameboard: if(!positionsHitArray.includes(coordinate)), then run hit()
-    positionsHitArray.push(coordinate);
+    this.coordinates.splice(coordinate, 1);
     length--;
-    return true;
+    return this.coordinates;
+    // if(this.coordinates.includes(coordinate)){
+    //   length--;
+    // }
+    // return true;
   }
 
   // function isSunk() {
