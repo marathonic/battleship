@@ -2,6 +2,7 @@ import { Ship } from "./Ship";
 
 export function Gameboard() {
   let shipsHere = []; // <-- contains the coordinate locations on which ships have been placed
+  let missedHere = [];
   let ship;
   let shipsObject = {};
   let targetShip;
@@ -50,11 +51,15 @@ export function Gameboard() {
           //   return `${ship.getName()} HP: ${ship.getLength()}`;
           // }
         } else {
+          missedHere.push(coordinates);
           return "miss"; // CHANGE TO <FALSE> <-- player hit the water, there's no ships there
         }
       } catch (err) {
         return err;
       }
+    },
+    missedShots() {
+      return missedHere;
     },
   };
 }

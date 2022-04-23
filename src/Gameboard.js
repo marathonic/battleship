@@ -2,6 +2,8 @@ import { Ship } from "./Ship";
 
 export function Gameboard() {
   let shipsHere = []; // <-- contains the coordinate locations on which ships have been placed
+  let missedShots = [];
+  let sunkShips = [];
   let ship;
   let shipsObject = {};
   let targetShip;
@@ -37,15 +39,23 @@ export function Gameboard() {
           targetShip.hit(coordinates);
           if (targetShip.isSunk()) {
             targetShip.isSunk = true;
+            sunkShips.push(targetShip.getName());
             return `${targetShip.getName()} has been sunk`;
           }
           return `${targetShip.getName()} hit, HP: ${targetShip.getLength()}`;
         } else {
+          missedShots.push(coordinates);
           return "miss"; // ('miss' for testing purposes, change to false!)<-- player hit the water, there's no ships there
         }
       } catch (err) {
         return err;
       }
+    },
+    missedHere() {
+      return missedShots;
+    },
+    reportSunk() {
+      return sunkShips.length === shipsHere.length ? true : false;
     },
   };
 }

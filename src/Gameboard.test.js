@@ -9,4 +9,6 @@ test("Creates ships from Gameboard", () => {
   console.debug(board.receiveAttack("A1"));
   console.debug(board.receiveAttack("2D"));
   console.debug(board.receiveAttack("3D"));
+  console.debug(board.missedHere());
+  console.debug(board.reportSunk());
 });
