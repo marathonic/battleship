@@ -1,5 +1,10 @@
 import { Ship } from "./Ship";
 
+//<------- How to place ships
+//Needs to get input from the DOM.
+//addEventListener('click') for each square in the battlefield.
+// send the id of the clicked square to placeShip()
+
 export function Gameboard() {
   let shipsHere = []; // <-- contains the coordinate locations on which ships have been placed
   let missedShots = [];
