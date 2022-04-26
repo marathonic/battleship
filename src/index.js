@@ -1,16 +1,23 @@
 // import { ShipClass } from "./ShipClass.js";
 import { Gameboard } from "./Gameboard";
 import { Player } from "./Player";
+import printMe from "./print";
 import { Ship } from "./Ship";
 import "./style.css";
 
-// function component() {
-//   const element = document.createElement("div");
+function component() {
+  const element = document.createElement("div");
+  const btn = document.createElement("button");
 
-//   element.innerHTML = "Hello";
-//   element.classList.add("hello");
-//   return element;
-// }
+  btn.innerHTML = "click me and check console pls";
+  btn.onclick = printMe;
+
+  element.appendChild(btn);
+
+  return element;
+}
+
+document.body.appendChild(component());
 
 function gameLogic() {
   //It's a simple loop!
@@ -37,5 +44,3 @@ function gameLogic() {
 
   if (myBoard.missedShots.includes(Player.c)) cpuMove();
 }
-
-document.body.appendChild(component());
