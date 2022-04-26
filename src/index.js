@@ -4,18 +4,7 @@ import { Player } from "./Player";
 import printMe from "./print";
 import { Ship } from "./Ship";
 import "./style.css";
-
-function component() {
-  const element = document.createElement("div");
-  const btn = document.createElement("button");
-
-  btn.innerHTML = "click me and check console pls";
-  btn.onclick = printMe;
-
-  element.appendChild(btn);
-
-  return element;
-}
+import component from "./component";
 
 document.body.appendChild(component());
 

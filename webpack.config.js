@@ -32,11 +32,11 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|jpeg|svg|gif)$/i,
-        use: ["asset/resource"],
+        type: "asset/resource",
       },
       {
         test: /\.(woff|woff2|ttf|eot|otf)$/i,
-        use: ["asset/resource"],
+        type: "asset/resource",
       },
       {
         test: /\.m=?js$/,
