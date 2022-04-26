@@ -28,7 +28,7 @@ export default function component() {
   for (let i = 0; i < constructHorizontal.length; i++) {
     let currentLetter = constructVertical[i]; // <--- get a letter (example: A)
     //Then, loop through the numbers array 10 times,
-    for (let j = 1; j <= 10; j++) {
+    for (let j = 0; j < constructVertical.length; j++) {
       let square = document.createElement("div");
       square.id = currentLetter + constructHorizontal[j]; // making its id equal the current letter + a number, up to number 10. Example: A7
       square.classList.add("squares");
