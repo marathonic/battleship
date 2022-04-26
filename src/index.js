@@ -4,13 +4,13 @@ import { Player } from "./Player";
 import { Ship } from "./Ship";
 import "./style.css";
 
-function component() {
-  const element = document.createElement("div");
+// function component() {
+//   const element = document.createElement("div");
 
-  element.innerHTML = "Hello";
-  element.classList.add("hello");
-  return element;
-}
+//   element.innerHTML = "Hello";
+//   element.classList.add("hello");
+//   return element;
+// }
 
 function gameLogic() {
   //It's a simple loop!

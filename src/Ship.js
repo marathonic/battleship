@@ -56,8 +56,8 @@ export function Ship(shipType) {
         return false;
       }
     },
-    async getName() {
-      return await shipName;
+    getName() {
+      return shipName;
     },
     damageReport() {
       return previouslyHit;

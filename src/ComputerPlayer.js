@@ -1,18 +1,6 @@
 import { Gameboard } from "./Gameboard";
 
-export function Player(playerName) {
-  // Each player's boards and methods will be assigned automatically
-  //Main Game Loop (make elsewhere):
-  //  playerOne's turn ? playerTwo will receive attacks during this turn
-  //  playerTwo's turn ? playerOne will receive attacks during this turn
-
-  //<-- InputForm Regex for playerName: Reserve "computer" for computer Players
-  //Regex for coordinates: take 1 letter and 1 or 2 digits. OR just
-  //delimit coordinates by naming the physical DOM squares. choice = id;
-  if (playerName !== "CPU") {
-    let thisPlayersName = playerName;
-  }
-
+export function ComputerPlayer() {
   //begin CPU functionality
   let horizontal = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   let vertical = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
@@ -35,7 +23,6 @@ export function Player(playerName) {
   };
 
   return {
-    playerName,
     computerMove,
     getComputerMoves() {
       return cpuMoves;
