@@ -5,6 +5,7 @@ import printMe from "./print";
 import { Ship } from "./Ship";
 import "./style.css";
 import component from "./component";
+import Game from "./Game";
 
 document.body.appendChild(component());
 
@@ -21,10 +22,7 @@ function gameLogic() {
   }
 
   //players take turns
-  let myBoard = Gameboard();
 
-  let human = Player("john"); // <-- placeholder: get through GUI
-  let computer = Player("CPU");
   function lastTurn(playa) {
     if (playa !== "CPU") {
       //prompt the human for a move

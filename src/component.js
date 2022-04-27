@@ -1,3 +1,5 @@
+import clickBoardToPlaceShip from "./clickBoardToPlaceShip";
+import { Gameboard } from "./Gameboard";
 import printMe from "./print";
 
 export default function component() {
@@ -21,7 +23,7 @@ export default function component() {
   //     board1.appendChild(square);
   //   }
 
-  //TESTING A,B,C...
+  //Board squares get IDs!
 
   let constructHorizontal = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
   let constructVertical = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
@@ -35,20 +37,27 @@ export default function component() {
       board1.appendChild(square);
     }
   }
-  //   constructVertical.forEach((boardLetter) => {
 
-  //   });
+  clickBoardToPlaceShip;
 
-  board1.addEventListener("click", function (e) {
-    console.log(e.target.id);
-  });
+  //DEV TEST: Console log the IDs when clicking a square
 
-  //   for (let i = 0; i < 10; i++) {
-  //     let square = document.createElement("div");
-  //     square.id = "A" + i;
-  //     square.classList.add("squares");
-  //     board1.classList.add(square);
+  // board1.addEventListener("click", function (e) {
+  //   console.log(e.target.id);
+  // });
+
+  //Make a class for each ship to be placed. The hover length changes with each ship that's loaded to play next.
+  //Then, a switch statement applies the appropriate class to each ship to be placed next
+  //First ship (destroyer): Square hovered over + next sibling.
+  //Last ship (carrier): Square hovered + next 5 siblings.
+
+  //<----------------------------------------Let's pick it up here. We could try our idea from above.
+  // board1.addEventListener("mouseover", function (e) {
+  //   if (e.target.classList == "squares") {
+  //     e.target.classList.add("hovered-ship");
+  //     //<-- Take the return value of a function that reports the ship currently being placed
   //   }
+  // });
 
   background.appendChild(title);
   background.appendChild(board1);

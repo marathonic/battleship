@@ -1,4 +1,5 @@
 import { Ship } from "./Ship";
+import component from "./component";
 
 //<------- How to place ships
 //Needs to get input from the DOM.
@@ -12,6 +13,9 @@ export function Gameboard() {
   let ship;
   let shipsObject = {};
   let targetShip;
+
+  //For human boards:
+
   return {
     placeShip(shipModel, ...coordies) {
       ship = Ship(shipModel);
@@ -61,6 +65,52 @@ export function Gameboard() {
     },
     reportSunk() {
       return sunkShips.length === shipsHere.length ? true : false;
+    },
+    hoverLength() {
+      switch (shipsHere.length) {
+        case 0:
+          return 2; // <-- no ships have been placed, current ship is a destroyer (2 squares)
+        // write some code to make the
+
+        default:
+          break;
+      }
+    },
+    selectHoveredOverAsCoordies() {
+      // <-- upon click, send to placeShips the IDs of the squares that have a class of hovered-over as the (...coordinates) parameter.
+    },
+    clickToPlaceShip() {
+      let board = document.querySelector(".board1");
+      board.addEventListener("click", function (e) {
+        if (e.target.classList !== "squares") return false;
+        let clickedChild = e.target;
+        let indexOfClickedChild = Array.from(
+          clickedChild.parentElement.children
+        ).indexOf(clickedChild);
+        // <--- we could get the id instead, and then we could send those IDs over to placeShip() as coordinate inputs
+        let lengthToHover = shipsHere.length + 1;
+        // let lengthToHover;
+        // switch (shipsHere.length) {
+        //   case 0:
+        //     lengthToHover = 2;
+        //     break;
+
+        //   case 1:
+        //     lengthToHover = 3;
+        //     break;
+
+        //   default:
+        //     break;
+        // }
+        for (let i = 0; i < lengthToHover; i++) {
+          let toBeStyled = indexOfClickedChild + i;
+          console.log(toBeStyled);
+          document
+            .querySelector(`.board1 :nth-child(${toBeStyled})`)
+            .classList.add("hovered-ship");
+          // toBeStyled.classLi
+        }
+      });
     },
   };
 }

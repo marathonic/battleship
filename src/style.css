@@ -61,6 +61,10 @@ h1 {
     border: solid black 1px;
 }
 
+.hovered-ship {
+    background-color: black;
+}
+
 button {
     max-width: max-content;
     max-height: max-content;
