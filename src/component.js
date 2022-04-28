@@ -17,6 +17,11 @@ export default function component() {
   board1.classList.add("boards");
   board1.classList.add("board1");
 
+  //Board for computer
+  const board2 = document.createElement("div");
+  board2.classList.add("boards");
+  board2.classList.add("board2");
+
   //Get the coordinates with ships on them. shipsHere[] from variable
   // can we use the Game Module as an escrow for DOM and logic?
   //would it have to be async?
@@ -47,6 +52,41 @@ export default function component() {
     }
   }
 
+  let constructHorizontalComputer = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+  ];
+  let constructVerticalComputer = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "H",
+    "I",
+    "J",
+  ];
+  for (let i = 0; i < constructHorizontalComputer.length; i++) {
+    let currentLetter = constructVerticalComputer[i]; // <--- get a letter (example: A)
+    //Then, loop through the numbers array 10 times,
+    for (let j = 0; j < constructVerticalComputer.length; j++) {
+      let square = document.createElement("div");
+      square.id = currentLetter + constructHorizontalComputer[j]; // making its id equal the current letter + a number, up to number 10. Example: A7
+      square.classList.add("squares-computer");
+      board2.appendChild(square);
+    }
+  }
+
   //send that id to ReceiveAttacck
 
   // At the same time,, or later, immediately apply a CSS class to the square in the DOM.
@@ -74,6 +114,7 @@ export default function component() {
 
   background.appendChild(title);
   background.appendChild(board1);
+  background.appendChild(board2);
   element.appendChild(background);
 
   return element;

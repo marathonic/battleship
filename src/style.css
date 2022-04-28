@@ -55,11 +55,13 @@ h1 {
 
 
 
-.squares {
+.squares,
+.squares-computer {
     border: solid whitesmoke 1px;
     /* TESTING DEVELOPMENT */
     border: solid black 1px;
 }
+
 
 .hovered-ship {
     background-color: black;

@@ -23,7 +23,9 @@ export default function Game() {
   computerBoard.placeShip("submarine", "C3", "C4"); // <-- When hovering X ship on grid, X ship highlights X squares on DOM. On click, put those squares' id into an Array. Return that array (holds our coordinates). We then change the parameters of placeShip to take the <...coordinates> array. We'll have to figure out how to get them out of the array. RIght now we're getting individual values, but with an array, we would get a double array [['A1','A2', 'etc.']]
 
   humanBoard.getAllCoordinatesOnMap();
-  humanBoard.reportClickedSquare();
+
+  computerBoard.getAllCoordinatesOnMap();
+  computerBoard.reportClickedSquare(); // <---- COMPUTER BOARD COLOURS IN MATCHING POSITIONS
 
   //lets run some
   // human.attack('A2')

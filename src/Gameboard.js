@@ -83,10 +83,23 @@ export function Gameboard() {
     },
 
     //ok just get the id of the clicked square.
+
+    //Wait a minute. Why do we need to be able to attack our own board? We don't
+    //The computer's attack process is as follows:
+    //1) The computer sends a coordinate to be attacked on the human's board
+    //2) The human's board receivesAttack to that coordinate
+
+    //reportAttackedSquare will be called by computer only
+    // reportAttackedSquare() {
+
+    // }
+
+    //reportClickedSquare will be called by human only
+
     reportClickedSquare() {
-      let board1 = document.querySelector(".board1");
-      board1.addEventListener("click", function (e) {
-        if (e.target.classList == "squares") {
+      let board2 = document.querySelector(".board2");
+      board2.addEventListener("click", function (e) {
+        if (e.target.classList == "squares-computer") {
           let allCoordinatesOnMapArray = allCoordinatesOnMap;
           allCoordinatesOnMapArray.forEach((arr) => {
             if (arr.includes(e.target.id)) {
