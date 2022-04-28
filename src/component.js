@@ -17,6 +17,15 @@ export default function component() {
   board1.classList.add("boards");
   board1.classList.add("board1");
 
+  //Get the coordinates with ships on them. shipsHere[] from variable
+  // can we use the Game Module as an escrow for DOM and logic?
+  //would it have to be async?
+  //
+
+  //before allowing players to place their ships, we'ŕe doing it manually.
+  //let's just get shipsHere inside of here.
+  //map through shipsHere to
+
   //   for (let i = 0; i < 100; i++) {
   //     let square = document.createElement("div");
   //     square.classList.add("squares");
@@ -38,7 +47,11 @@ export default function component() {
     }
   }
 
-  clickBoardToPlaceShip;
+  //send that id to ReceiveAttacck
+
+  // At the same time,, or later, immediately apply a CSS class to the square in the DOM.
+  // When you send the ID pof the clicked square to the Gameboard, the Gameboard takes that id and marks that position as hit, which disables it from being hit again on the Gameboard.
+  //When you hit a square two times, you get <false>. So when the Gameboard's receiveAttack function returns false, we need to let the DOM signal that.
 
   //DEV TEST: Console log the IDs when clicking a square
 

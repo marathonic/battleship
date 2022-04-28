@@ -1,6 +1,6 @@
 import { Gameboard } from "./Gameboard";
 
-export function HumanPlayer(playerName) {
+export default function HumanPlayer(nameOfPlayer) {
   // Each player's boards and methods will be assigned automatically
   //Main Game Loop (make elsewhere):
   //  playerOne's turn ? playerTwo will receive attacks during this turn
@@ -11,9 +11,11 @@ export function HumanPlayer(playerName) {
   //delimit coordinates by naming the physical DOM squares. choice = id;
 
   return {
-    playerName,
-    attack(...coordinates) {
-      return coordinates;
+    playerName() {
+      return nameOfPlayer;
+    },
+    attack(...returnCoordsAsInputForReceiveAttack) {
+      return returnCoordsAsInputForReceiveAttack;
     },
   };
 }
