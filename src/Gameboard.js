@@ -89,7 +89,11 @@ export function Gameboard() {
         if (e.target.classList == "squares") {
           let allCoordinatesOnMapArray = allCoordinatesOnMap;
           allCoordinatesOnMapArray.forEach((arr) => {
-            if (arr.includes(e.target.id)) console.log("MATCH");
+            if (arr.includes(e.target.id)) {
+              console.log("MATCH");
+              let matchedSquare = e.target;
+              matchedSquare.classList.add("coloured-in");
+            }
           });
           // console.log(e.target.id);
           // return e.target.id;

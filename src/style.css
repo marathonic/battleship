@@ -79,7 +79,9 @@ button {
     font-size: 100px;
 }
 
-
+.coloured-in {
+    background-color: crimson;
+}
 
 
 @font-face {
