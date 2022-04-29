@@ -15,7 +15,7 @@ export default function HumanPlayer(nameOfPlayer) {
     playerName() {
       return nameOfPlayer;
     },
-    attack() {
+    attacks() {
       let computerBoard = document.querySelector(".board2");
       computerBoard.addEventListener("click", function (e) {
         console.log(`${e.target.id} clicked, this fires from HumanPlayer!`);

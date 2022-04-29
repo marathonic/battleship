@@ -6,5 +6,3 @@ import HumanPlayer from "./HumanPlayer";
 
 document.body.appendChild(component());
 Game(); // <-- we are running Game from here. Game is in turn running reportClickedSquare() from the humanBoard variable created inside of Game.js
-let dude = HumanPlayer();
-dude.attack();

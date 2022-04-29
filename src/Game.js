@@ -27,6 +27,8 @@ export default function Game() {
   computerBoard.getAllCoordinatesOnMap();
   computerBoard.reportClickedSquare(); // <---- COMPUTER BOARD COLOURS IN MATCHING POSITIONS
 
+  human.attacks();
+
   //lets run some
   // human.attack('A2')
   // <-- write modified computerMove() that places coordinates.
