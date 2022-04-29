@@ -15,12 +15,13 @@ export default function HumanPlayer(nameOfPlayer) {
     playerName() {
       return nameOfPlayer;
     },
-    attacks() {
+    attacks(theComputersBoard) {
       let computerBoard = document.querySelector(".board2");
       computerBoard.addEventListener("click", function (e) {
         console.log(`${e.target.id} clicked, this fires from HumanPlayer!`);
+        theComputersBoard.receiveAttack(e.target.id);
+        // return `a coordinate ${e.target.id} has been clicked, get computer's board to receive the attack`;
       });
-      return `a coordinate has been clicked, get computer's board to receive the attack`;
     },
   };
 }

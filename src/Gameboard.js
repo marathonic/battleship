@@ -51,8 +51,12 @@ export function Gameboard() {
           if (targetShip.isSunk()) {
             targetShip.isSunk = true;
             sunkShips.push(targetShip.getName());
+            console.log(`Direct hit! ${targetShip.getName()} has been sunk`);
             return `${targetShip.getName()} has been sunk`;
           }
+          console.log(
+            `${targetShip.getName()} has been hit. HP Reamining: ${targetShip.getLength()}`
+          );
           return `${targetShip.getName()} hit, HP: ${targetShip.getLength()}`;
         } else {
           missedShots.push(coordinates);
