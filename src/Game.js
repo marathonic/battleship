@@ -27,11 +27,9 @@ export default function Game() {
   computerBoard.getAllCoordinatesOnMap();
   computerBoard.reportClickedSquare(); // <---- COMPUTER BOARD COLOURS IN MATCHING POSITIONS
 
+  // should we make async? <------------
   human.attacks(computerBoard);
-
-  if (computerBoard.reportSunk() === true) {
-    console.log("ONE SIDE IS OUT OF SHIPS. END THE GAME");
-  }
+  //computer attacks here.
 
   //lets run some
   // human.attack('A2')

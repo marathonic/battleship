@@ -42,12 +42,21 @@ export function Gameboard() {
     },
     receiveAttack(coordinates) {
       try {
-        //<-- if position has been hit before, hit() => false
+        //<-- if position has been hit before and was a miss, hit() => false
+        if (missedShots.includes(coordinates)) {
+          console.log("cant hit same position twice");
+          return false;
+        }
         // <-- is there a ship at those coordinates? If yes, proceed with line below
         if (shipsHere.some((e) => e.positions.includes(coordinates))) {
           targetShip = shipsHere.find((e) => e.positions.includes(coordinates)); // <-- we get the ship at the input coordinates (the targeted ship's own object)
           if (targetShip.damage.includes(coordinates)) return false; // <-- if that position has already been hit, return false.
+
           targetShip.hit(coordinates);
+          if (sunkShips.length === 2) {
+            console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
+            return "THE GAME IS OVER, ALL SHIPS ARE SUNK";
+          }
           if (targetShip.isSunk()) {
             targetShip.isSunk = true;
             sunkShips.push(targetShip.getName());
@@ -60,6 +69,7 @@ export function Gameboard() {
           return `${targetShip.getName()} hit, HP: ${targetShip.getLength()}`;
         } else {
           missedShots.push(coordinates);
+          console.log("MISS");
           return "miss"; // ('miss' for testing purposes, change to false!)<-- player hit the water, there's no ships there
         }
       } catch (err) {
@@ -70,7 +80,7 @@ export function Gameboard() {
       return missedShots;
     },
     reportSunk() {
-      return sunkShips.length === 2 ? true : false;
+      return sunkShips.length === shipsHere.length ? true : false;
     },
     hoverLength() {
       switch (shipsHere.length) {
