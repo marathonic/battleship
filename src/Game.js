@@ -28,7 +28,9 @@ export default function Game() {
   computerBoard.reportClickedSquare(); // <---- COMPUTER BOARD COLOURS IN MATCHING POSITIONS
 
   // should we make async? <------------
-  human.attacks(computerBoard);
+  human
+    .sendsAttack(computerBoard) //// <--------ATTENTION!!! WE LEFT OFF ON LINE 33 (THE LINE BELOW THIS ONE) PICK IT BACK UP THERE, WE ALREADY HAVE THAT LOGIC WRITTEN SOMEWHERE.
+    .then(computer.sendsAttack(humanBoard), false); //<-- THIS ATTACKS HUMANBOARD WHEN WE CLICK A SQUARE IN HUMANBOARD, BUT WE WANT TO SEND IT AUTOMATICALLY TO A RANDOM COORDINATE.
   //computer attacks here.
 
   //lets run some

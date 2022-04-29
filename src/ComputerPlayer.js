@@ -30,5 +30,12 @@ export function ComputerPlayer() {
     attack(...coordinates) {
       return coordinates;
     },
+    async sendsAttack(theHumansBoard) {
+      let humanBoard = document.querySelector(".board1");
+      humanBoard.addEventListener("click", function (e) {
+        theHumansBoard.receiveAttack(e.target.id);
+        return true;
+      });
+    },
   };
 }
