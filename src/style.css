@@ -71,6 +71,13 @@ h1 {
     background-color: red;
 }
 
+/* NOTE ON VERTICAL POSITIONING ----------------------------------------> */
+/* WHEN WE PLACE OUR OWN SHIPS, IF WE'RE POSITIONING THE SHIP VERTICALLY, just :nth-child(10n) */
+/* WE want to select every other 10th square. So vertically we're selecting A2, B2, C2, etc */
+/* HOWEVER, WE'RE GETTING THE COORDINATES FROM THE LOGIC, NOT THE CSS! */
+/* So what we do is when we click the square, we get the index of its id in allSquaresXD nodeList with querySelectorAll, to do that, we first need to make an Array.from(allSquaresXD)*/
+/* And after we have the id in the Array, just loop over the original nodeList up to the length of the ship currently being placed.  */
+/* Each loop, we find the item at 0 + 10 */
 button {
     max-width: max-content;
     max-height: max-content;

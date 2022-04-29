@@ -1,6 +1,7 @@
 import { Gameboard } from "./Gameboard";
 
 export default function HumanPlayer(nameOfPlayer) {
+  let playerName = nameOfPlayer;
   // Each player's boards and methods will be assigned automatically
   //Main Game Loop (make elsewhere):
   //  playerOne's turn ? playerTwo will receive attacks during this turn
@@ -14,8 +15,12 @@ export default function HumanPlayer(nameOfPlayer) {
     playerName() {
       return nameOfPlayer;
     },
-    attack(...returnCoordsAsInputForReceiveAttack) {
-      return returnCoordsAsInputForReceiveAttack;
+    attack() {
+      let computerBoard = document.querySelector(".board2");
+      computerBoard.addEventListener("click", function (e) {
+        console.log(`${e.target.id} clicked, this fires from HumanPlayer!`);
+      });
+      return `a coordinate has been clicked, get computer's board to receive the attack`;
     },
   };
 }

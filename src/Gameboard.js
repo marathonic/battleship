@@ -89,12 +89,12 @@ export function Gameboard() {
     //1) The computer sends a coordinate to be attacked on the human's board
     //2) The human's board receivesAttack to that coordinate
 
-    //reportAttackedSquare will be called by computer only
+    //reportAttackedSquare will be called by human only
     // reportAttackedSquare() {
 
     // }
 
-    //reportClickedSquare will be called by human only
+    //reportClickedSquare will be called by computer only
 
     reportClickedSquare() {
       let board2 = document.querySelector(".board2");
