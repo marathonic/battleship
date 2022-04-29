@@ -70,7 +70,7 @@ export function Gameboard() {
       return missedShots;
     },
     reportSunk() {
-      return sunkShips.length === shipsHere.length ? true : false;
+      return sunkShips.length === 2 ? true : false;
     },
     hoverLength() {
       switch (shipsHere.length) {

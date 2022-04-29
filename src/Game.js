@@ -29,6 +29,10 @@ export default function Game() {
 
   human.attacks(computerBoard);
 
+  if (computerBoard.reportSunk() === true) {
+    console.log("ONE SIDE IS OUT OF SHIPS. END THE GAME");
+  }
+
   //lets run some
   // human.attack('A2')
   // <-- write modified computerMove() that places coordinates.
