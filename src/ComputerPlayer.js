@@ -27,15 +27,8 @@ export function ComputerPlayer() {
     getComputerMoves() {
       return cpuMoves;
     },
-    attack(...coordinates) {
-      return coordinates;
-    },
-    async sendsAttack(theHumansBoard) {
-      let humanBoard = document.querySelector(".board1");
-      humanBoard.addEventListener("click", function (e) {
-        theHumansBoard.receiveAttack(e.target.id);
-        return true;
-      });
+    async attacks(theHumansBoard) {
+      theHumansBoard.receiveAttack(computerMove());
     },
   };
 }

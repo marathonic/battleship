@@ -23,11 +23,11 @@ export default function HumanPlayer(nameOfPlayer) {
         // return `a coordinate ${e.target.id} has been clicked, get computer's board to receive the attack`;
       });
     },
-    async sendsAttack(theComputersBoard) {
+    async sendsAttack(theComputersBoard, theComputerPlayer, theHumansBoard) {
       let computerBoard = document.querySelector(".board2");
       computerBoard.addEventListener("click", function (e) {
         theComputersBoard.receiveAttack(e.target.id);
-        return true;
+        theComputerPlayer.attacks(theHumansBoard);
       });
     },
   };

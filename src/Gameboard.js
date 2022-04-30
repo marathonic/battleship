@@ -55,21 +55,25 @@ export function Gameboard() {
           targetShip.hit(coordinates);
           if (sunkShips.length === 2) {
             console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
+            return false;
             return "THE GAME IS OVER, ALL SHIPS ARE SUNK";
           }
           if (targetShip.isSunk()) {
             targetShip.isSunk = true;
             sunkShips.push(targetShip.getName());
             console.log(`Direct hit! ${targetShip.getName()} has been sunk`);
+            return true;
             return `${targetShip.getName()} has been sunk`;
           }
           console.log(
             `${targetShip.getName()} has been hit. HP Reamining: ${targetShip.getLength()}`
           );
+          return true;
           return `${targetShip.getName()} hit, HP: ${targetShip.getLength()}`;
         } else {
           missedShots.push(coordinates);
           console.log("MISS");
+          return false;
           return "miss"; // ('miss' for testing purposes, change to false!)<-- player hit the water, there's no ships there
         }
       } catch (err) {
@@ -139,6 +143,7 @@ export function Gameboard() {
           if (targetShip.isSunk()) {
             targetShip.isSunk = true;
             sunkShips.push(targetShip.getName());
+            return true;
             return `${targetShip.getName()} has been sunk`;
           }
           return `${targetShip.getName()} hit, HP: ${targetShip.getLength()}`;
