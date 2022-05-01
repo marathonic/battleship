@@ -160,12 +160,23 @@ button {
 }
 
 .coloured-in {
-    background-color: crimson;
+    background-color: cyan;
+    border-color: cyan;
+}
+
+.coloured-in:hover {
+    background-color:cyan;
 }
 
 .missed-shot {
     background-color: cyan;
+    background-color: white;
     clip-path: polygon(100% 35%,100.00% 43.00%,0.00% 43.00%,0% 35%);
+}
+
+.missed-shot:hover {
+    background-color: #7FDBFF;
+    background-color: white;
 }
 
 @font-face {

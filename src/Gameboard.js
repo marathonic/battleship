@@ -146,6 +146,23 @@ export function Gameboard() {
         }, 100);
       });
     },
+    reportComputersAttacksOnBoard() {
+      let boardGetsClicked = document.querySelector(".board2");
+      boardGetsClicked.addEventListener("click", function () {
+        //now let's create the one for the human board
+        setTimeout(() => {
+          let humanSquares = document.querySelectorAll(".squares");
+          humanSquares.forEach((sq) => {
+            if (missedShots.includes(sq.id)) {
+              sq.classList.add("missed-shot");
+              console.log(
+                "This message means the missedShots array in human gameboard does include the coordinate"
+              );
+            }
+          });
+        }, 800);
+      });
+    },
     // reportAllHumanPositionsAttacked() {
     //   let alltheGoddarnSquaresAgain = document.querySelectorAll(".squares");
     //   alltheGoddarnSquaresAgain.forEach((sq) => {
