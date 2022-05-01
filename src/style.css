@@ -45,9 +45,32 @@ h1 {
     display: grid;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
+    
     /* TESTING DEVELOPMENT */
     /* border: solid black 3px; */
 }
+
+.boards.board1 {
+    
+    width: 25vw;
+    height: 35vh;
+    margin-left: 15vw ;
+    grid-row: 3;
+    justify-self: center;
+}
+
+/* TO MAKE THE HUMAN HOLOGRAM LOOK MORE UNIFORM, REPLACE BELOW WITH: .board1 div:nth-child(10n+1)  */
+.boards div:nth-child(10n+1) {
+    margin-left: 2vw;
+    width: 5vw;
+}
+
+
+.boards div:nth-child(10n+10) {
+    margin-right: 2vw;
+    width: 5vw;
+}
+
 .boards div:first-of-type {
     border-top-left-radius: 100%;
 }
@@ -64,22 +87,29 @@ h1 {
     border-bottom-right-radius: 100%;
 }
 
-.squares:hover {
+.squares-computer:hover {
     background-color: rgba(255, 220, 0, 0.7);
 }
-
+/* 
+ATTENTION
+ATTENTION
+-------------------------------------------------------
+-------------------------------------------------------- */
 /* LMAOOOOOOOOOOOOOOOOOOOOOO WE DID THE WHOLE STYLING ON THE PLAYER'S BOARD
 IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
 
-.boards.board1{
+.boards.board2{
     margin-left: 15vw;
-    border:dashed 1px var(--cyberYellow);
+    border:dashed 1px rgba(255, 220, 0, 0.1);
+    border: none;
     border-top-left-radius: 10%;
     border-bottom-left-radius: 10%;
     border-top-right-radius: 10%;
     border-bottom-right-radius: 10%;
     width: 70vw;
     height: 30vh;
+
+    grid-row:2;
     /* border-start-end-radius: 70%; */
 }
 
@@ -88,17 +118,19 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
     
 }
 
-.squares {
+.squares-computer {
     border: dashed 1px var(--cyberYellow);
     background-color: rgba(255, 255, 255, 0.2);
 }
-.squares-computer {
-    border: solid whitesmoke 1px;
+.squares {
+    border: solid cyan 1px;
+    background-color: rgba(0, 255, 255, 0.3);
+    
     /* TESTING DEVELOPMENT */
     /* border: solid black 1px; */
 }
 
-.squares:first-of-type {
+.squares-computer:first-of-type {
     border-top-left-radius: 100%;
 }
 
