@@ -44,7 +44,7 @@ export function Gameboard() {
       try {
         //<-- if position has been hit before and was a miss, hit() => false
         if (missedShots.includes(coordinates)) {
-          console.log("cant hit same position twice");
+          // console.log("cant hit same position twice");
           return false;
         }
         // <-- is there a ship at those coordinates? If yes, proceed with line below
@@ -129,8 +129,32 @@ export function Gameboard() {
           // console.log(e.target.id);
           // return e.target.id;
         }
+        // <--- We're still running insde the eventListener for the computer board
+        // <-- We're giving an ample 2 sec timeout for the computer to play its turn, and then
+        // <-- by the time the timeout runs, the newly hit coordinate will have been added to the array
+        setTimeout(() => {
+          let alltheGoddarnSquaresAgain =
+            document.querySelectorAll(".squares-computer");
+          alltheGoddarnSquaresAgain.forEach((sq) => {
+            if (missedShots.includes(sq.id)) {
+              sq.classList.add("missed-shot");
+              console.log(
+                "This message means the missedShots array in human gameboard does include the coordinate"
+              );
+            }
+          });
+        }, 100);
       });
     },
+    // reportAllHumanPositionsAttacked() {
+    //   let alltheGoddarnSquaresAgain = document.querySelectorAll(".squares");
+    //   alltheGoddarnSquaresAgain.forEach((sq) => {
+    //     if (missedShots.includes(sq)) {
+    //       sq.classList.add("missed-shot");
+    //     }
+    //   });
+    // },
+
     //send that id to ReceiveAttacck
     newReceiveAttack(coordinates) {
       try {

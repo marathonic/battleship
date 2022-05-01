@@ -27,6 +27,8 @@ export default function Game() {
   computerBoard.getAllCoordinatesOnMap();
   computerBoard.reportClickedSquare(); // <---- COMPUTER BOARD COLOURS IN MATCHING POSITIONS
 
+  // humanBoard.reportAllHumanPositionsAttacked(); // <-- fill in when a human coordinate is attacked
+
   // should we make async? <------------
   human.sendsAttack(computerBoard, computer, humanBoard); //// <--------ATTENTION!!! WE LEFT OFF ON LINE 33 (THE LINE BELOW THIS ONE) PICK IT BACK UP THERE, WE ALREADY HAVE THAT LOGIC WRITTEN SOMEWHERE.
   //computer attacks here.

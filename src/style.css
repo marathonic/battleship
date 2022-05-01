@@ -125,7 +125,7 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
 .squares {
     border: solid cyan 1px;
     background-color: rgba(0, 255, 255, 0.3);
-    
+    cursor:not-allowed;
     /* TESTING DEVELOPMENT */
     /* border: solid black 1px; */
 }
@@ -163,6 +163,10 @@ button {
     background-color: crimson;
 }
 
+.missed-shot {
+    background-color: cyan;
+    clip-path: polygon(100% 35%,100.00% 43.00%,0.00% 43.00%,0% 35%);
+}
 
 @font-face {
     font-family: 'Righteous';

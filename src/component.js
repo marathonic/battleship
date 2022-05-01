@@ -9,7 +9,7 @@ export default function component() {
 
   //Title
   const title = document.createElement("h1");
-  title.innerHTML = "Battleship";
+  title.innerHTML = "Starship";
   const btn = document.createElement("button");
 
   //Board for human
