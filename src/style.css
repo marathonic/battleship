@@ -179,6 +179,19 @@ button {
     background-color: white;
 }
 
+.missed-shot-from-computer {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.coloured-in-from-computer {
+    background-color: yellow;
+}
+
+.allied-ship-location {
+    background-color: var(--cyberYellow);
+    border: solid var(--cyberYellow) 1px;
+}
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');

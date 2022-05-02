@@ -14,7 +14,7 @@ export function Gameboard() {
   let shipsObject = {};
   let targetShip;
   let allCoordinatesOnMap = [];
-
+  let testLocationArray = ["A1", "A8", "A9"]; // <-------- WE'RE GOING TO SEND THE PLACEMENT COORDINATES THE USER CHOOSES TO AN ARRAY, JUST LIKE THIS.
   //For human boards:
 
   return {
@@ -118,7 +118,7 @@ export function Gameboard() {
       let board2 = document.querySelector(".board2");
       board2.addEventListener("click", function (e) {
         if (e.target.classList == "squares-computer") {
-          let allCoordinatesOnMapArray = allCoordinatesOnMap;
+          let allCoordinatesOnMapArray = allCoordinatesOnMap; // <-- why am I storing a reference here?
           allCoordinatesOnMapArray.forEach((arr) => {
             if (arr.includes(e.target.id)) {
               console.log("MATCH");
@@ -154,13 +154,13 @@ export function Gameboard() {
           let humanSquares = document.querySelectorAll(".squares");
           humanSquares.forEach((sq) => {
             if (missedShots.includes(sq.id)) {
-              sq.classList.add("missed-shot");
-              console.log(
-                "This message means the missedShots array in human gameboard does include the coordinate"
-              );
+              sq.classList.add("missed-shot-from-computer");
+            }
+            if (sq.classList.contains("allied-ship-location")) {
+              sq.classList.add("coloured-in-from-computer");
             }
           });
-        }, 800);
+        }, 300);
       });
     },
     // reportAllHumanPositionsAttacked() {
@@ -198,6 +198,14 @@ export function Gameboard() {
     },
     getAllCoordinatesOnMap() {
       console.log(allCoordinatesOnMap);
+    },
+    showAlliedShips() {
+      let alliedBattlefield = document.querySelectorAll(".squares");
+      alliedBattlefield.forEach((sq) => {
+        if (testLocationArray.includes(sq.id)) {
+          sq.classList.add("allied-ship-location");
+        }
+      });
     },
 
     // At the same time,, or later, immediately apply a CSS class to the square in the DOM.
