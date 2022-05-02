@@ -160,8 +160,11 @@ button {
 }
 
 .coloured-in {
-    background-color: cyan;
-    border-color: cyan;
+    /* background-color: cyan; */
+    /* border-color: cyan; */
+    background-color: darkred;
+    border: none;
+    animation: pulse 5s infinite;
 }
 
 .coloured-in:hover {
@@ -195,4 +198,13 @@ button {
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');
+}
+
+@keyframes pulse {
+    0%, 100% {
+        background-color: darkred;
+    }
+    50% {
+        background-color: crimson;
+    }
 }
