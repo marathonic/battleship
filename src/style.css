@@ -113,9 +113,6 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
     /* border-start-end-radius: 70%; */
 }
 
-.hide {
-    display: none;
-}
 
 .boards:hover {
     cursor: crosshair;
@@ -200,14 +197,31 @@ button {
 }
 
 .deploy-ships-btn {
-    grid: 1 / 3;
-    justify-items: center;
+
+    grid-row: 2;
+    position: absolute;
+    justify-self: center;
     align-self: center;
-    text-align: center;
     background-color: var(--cyberYellow);
+    font-family: 'Righteous';
+    font-size: 60px;
     color: rgb(9, 9, 75);
-    width: 26vw;
-    height: 5vh;
+    max-width: 70vw;
+    height: fit-content;
+    
+    grid-row: 2;
+
+    display: grid;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.invisible {
+    display: none;
+}
+
+.invisible:hover {
+    cursor:default;
 }
 
 @font-face {
