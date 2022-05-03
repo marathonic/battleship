@@ -129,9 +129,17 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
 .squares {
     border: solid cyan 1px;
     background-color: rgba(0, 255, 255, 0.3);
-    cursor:not-allowed;
+    cursor: pointer;
     /* TESTING DEVELOPMENT */
     /* border: solid black 1px; */
+}
+
+.squares-animation {
+    animation: append-animate .3s linear;
+}
+
+.cursor-not-allowed {
+    cursor:not-allowed;
 }
 
 .squares-computer:first-of-type {
@@ -212,8 +220,6 @@ button {
     max-width: 70vw;
     height: fit-content;
     
-    grid-row: 2;
-
     display: grid;
     flex-wrap: wrap;
     cursor: pointer;
@@ -227,6 +233,16 @@ button {
     cursor:default;
 }
 
+.placement-stage {
+    width: 5vw;
+    height: 6vh;
+}
+
+.board1.board-placement-stage {
+    grid-row: 2;
+    justify-content: center;
+}
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');
@@ -238,5 +254,16 @@ button {
     }
     50% {
         background-color: crimson;
+    }
+}
+
+@keyframes append-animate {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }

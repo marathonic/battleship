@@ -10,6 +10,6 @@ import generateHumanHologram from "./generateHumanHologram";
 
 document.body.appendChild(component());
 document.body.appendChild(addDeployShipsBtn());
-generateHumanHologram();
+generateHumanHologram(); // <-- on click
 // generateComputerHologram();
 Game(); // <-- we are running Game from here. Game is in turn running reportClickedSquare() from the humanBoard variable created inside of Game.js

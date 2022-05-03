@@ -1,6 +1,6 @@
 export default function generateHumanHologram() {
   let btn = document.querySelector(".deploy-ships-btn");
-  btn.addEventListener("click", function () {
+  btn.addEventListener("click", function (e) {
     //Board for human
     const board1 = document.createElement("div");
     board1.classList.add("boards");
@@ -26,10 +26,16 @@ export default function generateHumanHologram() {
         let square = document.createElement("div");
         square.id = currentLetter + constructHorizontal[j]; // making its id equal the current letter + a number, up to number 10. Example: A7
         square.classList.add("squares");
+        square.classList.add("placement-stage");
+        square.classList.add("squares-animation");
+        // square.classList.add("placement-stage"); //<-- REMOVE THIS CLASS UPON PLACING OUR LAST SHIP!
+
         board1.appendChild(square);
       }
     }
+    board1.classList.add("board-placement-stage");
     let bg = document.querySelector(".bg");
     bg.appendChild(board1);
+    e.target.parentNode.removeChild(e.target);
   });
 }
