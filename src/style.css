@@ -269,6 +269,7 @@ button {
   
   .example-dropzone {
     background-color: #6DB65B;
+    background-color: rgba(255, 255, 255, 0.7);
     flex-basis: 100%;
     flex-grow: 1;
     padding: 10px;
@@ -276,6 +277,12 @@ button {
 
   .testing-yellow {
       background-color: yellow;
+  }
+
+  .example-parent {
+      grid-column: 2;
+      grid-row: 2;
+      height: 72%;
   }
 
 @font-face {

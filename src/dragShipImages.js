@@ -2,6 +2,7 @@ export default function dragShipImages() {
   //Wait for ENGAGE button click to present the ships:
   let engageBtn = document.querySelector(".deploy-ships-btn");
   engageBtn.addEventListener("click", function () {
+    //Then wait just enough for the board animation to complete:
     //NOw for the images:
     const exampleParent = document.createElement("div");
     exampleParent.classList.add("example-parent");
@@ -44,7 +45,9 @@ export default function dragShipImages() {
     //   const xWing = document.createElement("img");
     //   xWing.src = "./img/enterprise-sideview.png";
     let bg = document.querySelector(".bg");
-    bg.appendChild(exampleParent);
+    setTimeout(() => {
+      bg.appendChild(exampleParent);
+    }, 320);
   });
 }
 
