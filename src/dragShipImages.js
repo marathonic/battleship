@@ -18,6 +18,16 @@ export default function dragShipImages() {
     divDraggable.addEventListener("dragstart", function (e) {
       onDragStart(e);
     });
+    ///another one, draggable 2
+    const divDraggable2 = document.createElement("div");
+    divDraggable2.id = "draggable-2";
+    divDraggable2.classList.add("example-draggable");
+    divDraggable2.innerHTML = "thingy-2";
+    divDraggable2.draggable = true;
+    exampleOrigin.appendChild(divDraggable2);
+    divDraggable2.addEventListener("dragstart", function (e) {
+      onDragStart(e);
+    });
     /////// dropzone
 
     const dropzone = document.createElement("div");
