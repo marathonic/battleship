@@ -1,3 +1,4 @@
+import xWingy from "./img/xwing.png";
 export default function dragShipImages() {
   //Wait for ENGAGE button click to present the ships:
   let engageBtn = document.querySelector(".deploy-ships-btn");
@@ -27,6 +28,16 @@ export default function dragShipImages() {
     divDraggable2.draggable = true;
     exampleOrigin.appendChild(divDraggable2);
     divDraggable2.addEventListener("dragstart", function (e) {
+      onDragStart(e);
+    });
+    ///a third one, this time an image
+    const xWing = document.createElement("img");
+    xWing.id = "x-wing";
+    xWing.src = xWingy;
+    xWing.classList.add("example-draggable-img");
+    xWing.draggable = true;
+    exampleOrigin.appendChild(xWing);
+    xWing.addEventListener("dragstart", function (e) {
       onDragStart(e);
     });
     /////// dropzone
