@@ -1,35 +1,35 @@
-import xWingy from "./img/xwing.png";
+import xWingy from "./img/xwing-cropped.png";
 export default function dragShipImages() {
   //Wait for ENGAGE button click to present the ships:
   let engageBtn = document.querySelector(".deploy-ships-btn");
   engageBtn.addEventListener("click", function () {
     //Then wait just enough for the board animation to complete:
     //NOw for the images:
-    const exampleParent = document.createElement("div");
-    exampleParent.classList.add("example-parent");
+    // const exampleParent = document.createElement("div");
+    // exampleParent.classList.add("example-parent");
     const exampleOrigin = document.createElement("div");
     exampleOrigin.classList.add("example-origin");
-    exampleParent.appendChild(exampleOrigin);
-    ///draggable
-    const divDraggable = document.createElement("div");
-    divDraggable.id = "draggable-1";
-    divDraggable.classList.add("example-draggable");
-    divDraggable.innerHTML = "draggable";
-    divDraggable.draggable = true;
-    exampleOrigin.appendChild(divDraggable);
-    divDraggable.addEventListener("dragstart", function (e) {
-      onDragStart(e);
-    });
+    // exampleParent.appendChild(exampleOrigin);
+    // ///draggable
+    // const divDraggable = document.createElement("div");
+    // divDraggable.id = "draggable-1";
+    // divDraggable.classList.add("example-draggable");
+    // divDraggable.innerHTML = "draggable";
+    // divDraggable.draggable = true;
+    // exampleOrigin.appendChild(divDraggable);
+    // divDraggable.addEventListener("dragstart", function (e) {
+    //   onDragStart(e);
+    // });
     ///another one, draggable 2
-    const divDraggable2 = document.createElement("div");
-    divDraggable2.id = "draggable-2";
-    divDraggable2.classList.add("example-draggable");
-    divDraggable2.innerHTML = "thingy-2";
-    divDraggable2.draggable = true;
-    exampleOrigin.appendChild(divDraggable2);
-    divDraggable2.addEventListener("dragstart", function (e) {
-      onDragStart(e);
-    });
+    // const divDraggable2 = document.createElement("div");
+    // divDraggable2.id = "draggable-2";
+    // divDraggable2.classList.add("example-draggable");
+    // divDraggable2.innerHTML = "thingy-2";
+    // divDraggable2.draggable = true;
+    // exampleOrigin.appendChild(divDraggable2);
+    // divDraggable2.addEventListener("dragstart", function (e) {
+    //   onDragStart(e);
+    // });
     ///a third one, this time an image
     const xWing = document.createElement("img");
     xWing.id = "x-wing";
@@ -52,12 +52,13 @@ export default function dragShipImages() {
     dropzone.addEventListener("drop", function (e) {
       onDrop(e);
     });
-    exampleParent.appendChild(dropzone);
+    // exampleParent.appendChild(dropzone);
     //   const xWing = document.createElement("img");
     //   xWing.src = "./img/enterprise-sideview.png";
     let bg = document.querySelector(".bg");
     setTimeout(() => {
-      bg.appendChild(exampleParent);
+      let draggit = document.querySelector(".drag-div");
+      draggit.appendChild(exampleOrigin);
     }, 320);
   });
 }
@@ -66,6 +67,7 @@ function onDragStart(e) {
   e.dataTransfer.setData("text/plain", e.target.id);
 
   e.currentTarget.classList.add("testing-yellow");
+  e.currentTarget.classList.add("grabbing");
 }
 
 function onDragOver(e) {

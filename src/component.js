@@ -54,7 +54,11 @@ export default function component() {
   //   }
   // });
 
+  //Div to attach both gameboard and draggable images to
+  const dragDiv = document.createElement("div");
+  dragDiv.classList.add("drag-div");
   background.appendChild(title);
+  background.appendChild(dragDiv);
   element.appendChild(background);
   return element;
 }

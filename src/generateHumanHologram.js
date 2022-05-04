@@ -35,7 +35,10 @@ export default function generateHumanHologram() {
     }
     board1.classList.add("board-placement-stage");
     let bg = document.querySelector(".bg");
-    bg.appendChild(board1);
-    e.target.parentNode.removeChild(e.target);
+    // bg.appendChild(board1);
+    let dragBoi = document.querySelector(".drag-div");
+    dragBoi.appendChild(board1);
+    bg.appendChild(dragBoi);
+    e.target.parentNode.removeChild(e.target); // <--- deletes the 'ENGAGE' button upon click
   });
 }
