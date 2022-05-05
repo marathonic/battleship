@@ -1,4 +1,10 @@
+import { getNextLengthToBePlaced } from "./getNextLengthToBePlaced";
 import xWingy from "./img/xwing-cropped.png";
+import isFirstToBePlaced from "./isFirstToBePlaced";
+//import more pics
+
+//array to loop over to check for data attribute
+
 export default function dragShipImages() {
   //Wait for ENGAGE button click to present the ships:
   let engageBtn = document.querySelector(".deploy-ships-btn");
@@ -65,11 +71,10 @@ export default function dragShipImages() {
 
 function onDragStart(e) {
   e.dataTransfer.setData("text/plain", e.target.id);
+  e.dataTransfer.setDragImage(e.target, 0, 0);
 
-  e.currentTarget.classList.add("testing-yellow");
   e.currentTarget.classList.add("grabbing");
 }
-
 function onDragOver(e) {
   e.preventDefault();
 }
@@ -79,6 +84,23 @@ function onDrop(e) {
   let draggableElement = document.getElementById(id);
   let dropzone = e.target;
   dropzone.appendChild(draggableElement);
-
+  draggableElement.classList.add("painted-square");
   e.dataTransfer.clearData();
+
+  //check for ['previous-pic'] data attribute. If false, we're placing our first ship (destroyer).
+  if (isFirstToBePlaced) {
+    //code to colour the square we click / are hovering over
+    //since we're only running this function if we're placing destroyer, it's only the 1 square
+    let xWing = document.querySelector("#x-wing");
+    xWing.setAttribute("last-placed-picture");
+  }
+
+  if (!isFirstToBePlaced) {
+    let thePreviousPicture = document.querySelector("[last-placed-picture]");
+    thePreviousPicture.removeAttribute("last-placed-picture");
+    let currentlyBeingPlaced = e.target;
+    console.log(currentlyBeingPlaced.id); // <-- let's see what this returns. We want to get the id of the picture (in this case, 'x-wing')
+    e.target.setAttribute("[last-placed-picture]");
+    // let nextPic = getNextLengthToBePlaced();
+  }
 }

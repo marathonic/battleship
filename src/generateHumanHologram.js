@@ -40,5 +40,27 @@ export default function generateHumanHologram() {
     dragBoi.appendChild(board1);
     bg.appendChild(dragBoi);
     e.target.parentNode.removeChild(e.target); // <--- deletes the 'ENGAGE' button upon click
+
+    // make this hologram work with Drag & Drop functionality
+
+    board1.addEventListener("dragover", function (e) {
+      onDragOver(e); // <-------------------- PAY ATTENTION! Divs don't drop by default, but images do!
+      // When we switch to an img, if our img isn't dropping, take this part out!
+    });
+    board1.addEventListener("drop", function (e) {
+      onDrop(e);
+    });
+    function onDragOver(e) {
+      e.preventDefault();
+    }
+
+    function onDrop(e) {
+      let id = e.dataTransfer.getData("text");
+      let draggableElement = document.getElementById(id);
+      let dropzone = e.target;
+      dropzone.appendChild(draggableElement);
+
+      e.dataTransfer.clearData();
+    }
   });
 }

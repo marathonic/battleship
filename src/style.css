@@ -229,6 +229,15 @@ button {
     display: none;
 }
 
+.hide {
+    visibility: hidden;
+}
+
+.mini {
+    height: 5%;
+    width: 5%;
+}
+
 .invisible:hover {
     cursor:default;
 }
@@ -277,7 +286,7 @@ button {
     max-width: max-content;
     max-height: max-content;
     width: 90%;
-    height: 70%;
+    height: 70%; 
     justify-items: center;
     align-self: center;
     /* margin-bottom: 10px;
@@ -285,9 +294,17 @@ button {
     padding: 10px; */
   }
 
+  #x-wing {
+      /* background: none; */
+    /* transform: translate(0,0); */
+
+  }
+
   .grabbing {
       max-width: 50%;
       max-height: 20%;
+      /* background: none; */
+    /* transform: translate(0,0); */
   }
   
   
@@ -299,10 +316,6 @@ button {
     width: 10%;
     height: 20%;
     /* padding: 10px; */
-  }
-
-  .testing-yellow {
-      background-color: yellow;
   }
 
   .example-parent {
@@ -325,6 +338,10 @@ button {
       grid-column: 2;
       grid-row: 2;
       justify-self: center;
+  }
+
+  .painted-square {
+      background-color: #fff;
   }
 
 @font-face {
