@@ -1,4 +1,5 @@
 import justPlaced from "./justPlaced";
+import paintLength from "./paintLength";
 import presentNextImage from "./presentNextImage";
 
 export default function generateHumanHologram() {
@@ -67,7 +68,10 @@ export default function generateHumanHologram() {
       markedAsPlaced.push(id);
       if (markedAsPlaced.length > 1) markedAsPlaced.shift();
       console.log(markedAsPlaced[0]);
-      console.log(e.target);
+      console.log(e.target.id);
+      let imgID = markedAsPlaced[0];
+      let sqID = e.target.id;
+      // paintLength(imgID, sqID);
       e.dataTransfer.clearData();
 
       // presentNextImage(markedAsPlaced)

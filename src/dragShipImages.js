@@ -1,4 +1,4 @@
-import { getNextLengthToBePlaced } from "./getNextLengthToBePlaced";
+import getNextLengthToBePlaced from "./getNextLengthToBePlaced";
 import xWingy from "./img/xwing-cropped.png";
 import enterprise from "./img/enterprise.png";
 import isFirstToBePlaced from "./isFirstToBePlaced";
@@ -56,7 +56,7 @@ export default function dragShipImages() {
       // let pictureToPlace = whatPic();
       // let currentlyBeingPlaced = e.target;
       // console.log(currentlyBeingPlaced.id); // <-- let's see what this returns. We want to get the id of the picture (in this case, 'x-wing')
-      // e.target.setAttribute("[last-placed-picture]");
+      e.target.setAttribute("[last-placed-picture]");
       // let nextPic = getNextLengthToBePlaced();
     }
   });
