@@ -1,4 +1,8 @@
+import justPlaced from "./justPlaced";
+import presentNextImage from "./presentNextImage";
+
 export default function generateHumanHologram() {
+  let markedAsPlaced = [];
   let btn = document.querySelector(".deploy-ships-btn");
   btn.addEventListener("click", function (e) {
     //Board for human
@@ -60,7 +64,15 @@ export default function generateHumanHologram() {
       let dropzone = e.target;
       dropzone.appendChild(draggableElement);
 
+      // console.log(id);
+      // justPlaced(id);
+      markedAsPlaced.push(id);
+      if (markedAsPlaced.length > 1) markedAsPlaced.shift();
+      console.log(markedAsPlaced[0]);
       e.dataTransfer.clearData();
+
+      // presentNextImage(markedAsPlaced)
+      presentNextImage(markedAsPlaced);
     }
   });
 }

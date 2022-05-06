@@ -341,7 +341,11 @@ button {
   }
 
   .painted-square {
-      background-color: #fff;
+    background: var(--cyberYellow);
+  }
+
+  .test-drop {
+      background-color: var(--cyberYellow);
   }
 
 @font-face {
