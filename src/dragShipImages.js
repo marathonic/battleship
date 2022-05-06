@@ -52,12 +52,11 @@ export default function dragShipImages() {
     }
 
     if (!isFirstToBePlaced()) {
-      let pictureToPlace = whatPic();
-
+      console.log("not our first rodeo");
+      // let pictureToPlace = whatPic();
       // let currentlyBeingPlaced = e.target;
       // console.log(currentlyBeingPlaced.id); // <-- let's see what this returns. We want to get the id of the picture (in this case, 'x-wing')
       // e.target.setAttribute("[last-placed-picture]");
-
       // let nextPic = getNextLengthToBePlaced();
     }
   });
@@ -66,6 +65,6 @@ export default function dragShipImages() {
 function onDragStart(e) {
   e.dataTransfer.setData("text/plain", e.target.id);
   e.dataTransfer.setDragImage(e.target, 0, 0);
-
+  console.log("grabbing image");
   e.currentTarget.classList.add("grabbing");
 }

@@ -1,4 +1,4 @@
-import submarine from "./img/resurrection.jpg";
+import submarine from "./img/resurrection.png";
 import cruiser from "./img/enterprise.png";
 
 export default function presentNextImage(arrayOfPictureIDs) {
@@ -23,7 +23,20 @@ export default function presentNextImage(arrayOfPictureIDs) {
     default:
       break;
   }
+
   nextImage.classList.add("example-draggable-img");
   nextImage.draggable = true;
   exampleOrigin.appendChild(nextImage);
+  nextImage.addEventListener("dragstart", function (e) {
+    function onDragStart(e) {
+      e.dataTransfer.setData("text/plain", e.target.id);
+      e.dataTransfer.setDragImage(e.target, 0, 0);
+      console.log("grabbing image");
+      e.currentTarget.classList.add("grabbing");
+    }
+
+    onDragStart(e);
+    // currentlyBeingPlaced = e.target;
+    // currentlyBeingPlacedID = e.target.id;
+  });
 }

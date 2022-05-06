@@ -63,12 +63,11 @@ export default function generateHumanHologram() {
       let draggableElement = document.getElementById(id);
       let dropzone = e.target;
       dropzone.appendChild(draggableElement);
-
-      // console.log(id);
-      // justPlaced(id);
+      // we get the next image:
       markedAsPlaced.push(id);
       if (markedAsPlaced.length > 1) markedAsPlaced.shift();
       console.log(markedAsPlaced[0]);
+      console.log(e.target);
       e.dataTransfer.clearData();
 
       // presentNextImage(markedAsPlaced)
