@@ -61,6 +61,9 @@ export default function generateHumanHologram() {
     }
 
     function onDrop(e) {
+      if (e.target.classList.contains("colour-this-square")) return false; // <-- do not colour twice ( will it work ? )
+      // ^^^ WE LEFT OFF HERE, JUST WROTE THE LINE ABOVE!!! BUUUTT!!!! BEFORE THAT, WE WERE WORKING ON highlightOnHover()
+
       let id = e.dataTransfer.getData("text");
       let draggableElement = document.getElementById(id);
       let dropzone = e.target;
@@ -73,7 +76,7 @@ export default function generateHumanHologram() {
       let imgID = markedAsPlaced[0];
       let sqID = e.target.id;
       // paintLength(imgID, sqID);
-      paintLength(imgID, sqID, "horizontal");
+      paintLength(imgID, sqID, "vertical");
       e.dataTransfer.clearData();
 
       // presentNextImage(markedAsPlaced)

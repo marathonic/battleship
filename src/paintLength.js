@@ -7,14 +7,42 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
   if (orientation === undefined) orientation = "horizontal";
 
   if (orientation === "vertical") {
+    console.log("orientation is " + orientation);
+
+    let letterCells = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
+
     let lengthToFill = getNextLengthToBePlaced(imageIdee);
-    let letter = squareIdee.charAt(0); // <-- store the letter
     let num = Number(squareIdee.substring(1)); // <-- store the number
+    let theLetter = squareIdee.charAt(0); // <-- store the letter
+    let indexOfLetter = letterCells.indexOf(theLetter);
+    let letter = letterCells[indexOfLetter];
+    //figure out what the last square is
+
+    //do not proceed if vertical overflow
+
+    if (indexOfLetter > 5) {
+      console.log(
+        indexOfLetter +
+          "is higher than 5, would overflow the map, cannot place there"
+      );
+
+      return false;
+    }
+
+    //do not proceed if horizontal overflow
+
+    if (num + lengthToFill > 10) {
+      console.log(`${num + lengthToFill} is larget than 10`);
+      return false;
+    }
+
     for (let i = 0; i < lengthToFill; i++) {
-      let coordData = letter + (num + 10);
+      let coordData = letter + num;
       let coordToPaint = document.getElementById(coordData);
+      console.log(coordData);
+      console.log(coordToPaint);
       coordToPaint.classList.add("colour-this-square");
-      num += 10; // <--- first loop: 10, second loop: 20, etc...a vertical line
+      indexOfLetter++; // <--- first loop: A1, second loop: B10, etc...a vertical line
     }
   }
 
