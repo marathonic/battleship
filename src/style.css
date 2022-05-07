@@ -348,6 +348,10 @@ button {
       background-color: var(--cyberYellow);
   }
 
+  .colour-this-square {
+      background-color: var(--cyberYellow);
+  }
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');

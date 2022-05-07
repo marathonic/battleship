@@ -51,6 +51,7 @@ export default function generateHumanHologram() {
     board1.addEventListener("dragover", function (e) {
       onDragOver(e); // <-------------------- PAY ATTENTION! Divs don't drop by default, but images do!
       // When we switch to an img, if our img isn't dropping, take this part out!
+      console.log("does this show up when we hover over the board?");
     });
     board1.addEventListener("drop", function (e) {
       onDrop(e);
@@ -72,6 +73,7 @@ export default function generateHumanHologram() {
       let imgID = markedAsPlaced[0];
       let sqID = e.target.id;
       // paintLength(imgID, sqID);
+      paintLength(imgID, sqID, "horizontal");
       e.dataTransfer.clearData();
 
       // presentNextImage(markedAsPlaced)
