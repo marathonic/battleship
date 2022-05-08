@@ -61,6 +61,7 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
       let coordData = letter + num;
       let coordToPaint = document.getElementById(coordData);
       coordToPaint.classList.add("colour-this-square");
+      lastPaintedCoords(coordData);
       num++; // <-- a horizontal line
     }
   }

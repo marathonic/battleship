@@ -2,7 +2,10 @@ import getNextLengthToBePlaced from "./getNextLengthToBePlaced";
 import xWingy from "./img/xwing-cropped.png";
 import enterprise from "./img/enterprise.png";
 import isFirstToBePlaced from "./isFirstToBePlaced";
-import lastPaintedCoords, { reportPaint } from "./lastPaintedCoords";
+import lastPaintedCoords, {
+  clearRecord,
+  reportPaint,
+} from "./lastPaintedCoords";
 //import more pics
 
 //array to loop over to check for data attribute
@@ -77,7 +80,10 @@ function onDragStart(e) {
     let actualParentSquareOfImgElement =
       document.getElementById(parentSquareOfImg);
     actualParentSquareOfImgElement.addEventListener("mouseleave", function () {
-      let recentPaint = reportPaint(); // <--- this is only returning an empty array, why?
+      let reportPaintReference = reportPaint();
+      let recentPaint = [...reportPaintReference]; // <--- is this only returning an empty array?
+
+      clearRecord(); // <-- we have stored the array that holds those locations in our recentPaint variable, so now we empty the original array.
       console.log(recentPaint);
       for (let i = 0; i < recentPaint.length; i++) {
         let toDepaint = document.getElementById(recentPaint[i]);
