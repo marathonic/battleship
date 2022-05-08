@@ -63,8 +63,15 @@ export default function dragShipImages() {
 }
 
 function onDragStart(e) {
+  ////////////////////////////<-----------------------WE'RE LEAVING OFF HERE FOR TODAY, CONTINUE HERE TOMORROW!!! READ BELOW!!!!! -------------------------------->\\\\\\\\\\\\\\\\\\\\\\\\
+  //I think we know how we can make it so we can remove the paint when we reposition a ship (only the current positions will be filled in, the old ones will have their styling removed)
+  // LIKE THIS:
+  //Upon dragging an image (an img that's already been placed on the board), check its parentNode! (or just parent, not sure of the terminology)
+  //So we want to check if the parentNode contains a classList of 'squares'. If so, it means it's on the board already, right?
+  //So if that's true, we want to activate an eventListener of 'mouseleave', I think. Hmmmmm, let's think about that one.
   e.dataTransfer.setData("text/plain", e.target.id);
   e.dataTransfer.setDragImage(e.target, 0, 0);
   console.log("grabbing image");
+  if (e.currentTarget.classList.contains("grabbing")) return;
   e.currentTarget.classList.add("grabbing");
 }

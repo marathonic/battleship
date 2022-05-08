@@ -5,6 +5,8 @@ import getNextLengthToBePlaced from "./getNextLengthToBePlaced";
 export default function paintLength(imageIdee, squareIdee, orientation) {
   // add a parameter: orientation. <-- if set to vertical, loop over
   if (orientation === undefined) orientation = "horizontal";
+  let theImage = document.getElementById(imageIdee);
+  if (theImage.classList.contains("rotate-vertical")) orientation = "vertical";
 
   let letterCells = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 

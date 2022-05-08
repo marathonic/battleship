@@ -1,6 +1,7 @@
 import justPlaced from "./justPlaced";
 import paintLength from "./paintLength";
 import presentNextImage from "./presentNextImage";
+import { rotateImg } from "./rotateImg";
 
 export default function generateHumanHologram() {
   let markedAsPlaced = [];
@@ -76,11 +77,20 @@ export default function generateHumanHologram() {
       let imgID = markedAsPlaced[0];
       let sqID = e.target.id;
       // paintLength(imgID, sqID);
-      paintLength(imgID, sqID, "vertical");
+      paintLength(imgID, sqID);
       e.dataTransfer.clearData();
-
+      draggableElement.classList.remove("example-draggable-img");
+      draggableElement.classList.remove("grabbing");
       // presentNextImage(markedAsPlaced)
       presentNextImage(markedAsPlaced);
     }
+    setTimeout(() => {
+      let rotateBtn = document.createElement("button");
+      rotateBtn.id = "rotate-button";
+      rotateBtn.innerHTML = "rotate";
+      rotateBtn.classList = "rotate-btn";
+      board1.appendChild(rotateBtn);
+      rotateImg();
+    }, 300);
   });
 }

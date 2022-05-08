@@ -1,5 +1,6 @@
 import submarine from "./img/resurrection.png";
 import cruiser from "./img/enterprise.png";
+// import battleship
 
 export default function presentNextImage(arrayOfPictureIDs) {
   let nextImage = document.createElement("img");
@@ -19,6 +20,10 @@ export default function presentNextImage(arrayOfPictureIDs) {
       nextImage.src = cruiser;
       nextImage.id = "cruiser";
       break;
+
+    // case 'cruiser':
+    //   nextImage.src = battleship;
+    //   nextImage.id = 'battleship';
 
     default:
       break;

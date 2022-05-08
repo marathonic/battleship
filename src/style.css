@@ -225,6 +225,30 @@ button {
     cursor: pointer;
 }
 
+.rotate-btn {
+    justify-self: center;
+    align-self: center;
+    background-color: var(--cyberYellow);
+    font-family: 'Righteous';
+    font-size: 60px;
+    color: rgb(9, 9, 75);
+    max-width: 70vw;
+    height: fit-content;
+    
+    display: grid;
+    flex-wrap: wrap;
+    cursor: pointer;
+}
+
+.rotate-vertical {
+    transform: rotate(-0.25turn);
+}
+
+#rotate-button {
+    background-color: whitesmoke;
+    justify-items: center;
+}
+
 .invisible {
     display: none;
 }
