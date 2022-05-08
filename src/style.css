@@ -376,6 +376,14 @@ button {
       background-color: var(--cyberYellow);
   }
 
+  .black {
+      background-color: black;
+  }
+
+  .cyan {
+      background-color: cyan;
+  }
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');

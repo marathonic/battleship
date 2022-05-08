@@ -1,4 +1,5 @@
 import getNextLengthToBePlaced from "./getNextLengthToBePlaced";
+import lastPaintedCoords from "./lastPaintedCoords";
 
 //we had to rename getLengthOf() back to getNextLengthToBePlaced() because errors started popping up, but it's fine now. It's fine now.
 
@@ -37,9 +38,12 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
       console.log(coordData);
       console.log(coordToPaint);
       coordToPaint.classList.add("colour-this-square");
+      lastPaintedCoords(coordData);
       indexOfLetter++; // <--- first loop: A1, second loop: B10, etc...a vertical line
     }
   }
+
+  ///horizontal positioning
 
   if (orientation === "horizontal") {
     let lengthToFill = getNextLengthToBePlaced(imageIdee);

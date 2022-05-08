@@ -2,6 +2,7 @@ import getNextLengthToBePlaced from "./getNextLengthToBePlaced";
 import xWingy from "./img/xwing-cropped.png";
 import enterprise from "./img/enterprise.png";
 import isFirstToBePlaced from "./isFirstToBePlaced";
+import lastPaintedCoords, { reportPaint } from "./lastPaintedCoords";
 //import more pics
 
 //array to loop over to check for data attribute
@@ -69,6 +70,26 @@ function onDragStart(e) {
   //Upon dragging an image (an img that's already been placed on the board), check its parentNode! (or just parent, not sure of the terminology)
   //So we want to check if the parentNode contains a classList of 'squares'. If so, it means it's on the board already, right?
   //So if that's true, we want to activate an eventListener of 'mouseleave', I think. Hmmmmm, let's think about that one.
+  //<----------
+  //loop over the coordinates with paint on them, and remove the styling
+  if (e.currentTarget.parentNode.classList.contains("squares")) {
+    let parentSquareOfImg = e.currentTarget.parentNode.id;
+    let actualParentSquareOfImgElement =
+      document.getElementById(parentSquareOfImg);
+    actualParentSquareOfImgElement.addEventListener("mouseleave", function () {
+      let recentPaint = reportPaint(); // <--- this is only returning an empty array, why?
+      console.log(recentPaint);
+      for (let i = 0; i < recentPaint.length; i++) {
+        let toDepaint = document.getElementById(recentPaint[i]);
+        toDepaint.classList.add("black");
+        // toDepaint.classList.remove("colour-this-square");
+        if (toDepaint.classList.contains("allied-ship-location"))
+          toDepaint.classList.remove("allied-ship-location");
+        if (toDepaint.classList.contains("painted-square"))
+          toDepaint.classList.remove("painted-square");
+      }
+    });
+  }
   e.dataTransfer.setData("text/plain", e.target.id);
   e.dataTransfer.setDragImage(e.target, 0, 0);
   console.log("grabbing image");
