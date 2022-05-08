@@ -34,6 +34,9 @@ export default function dragShipImages() {
     let currentlyBeingPlacedID;
     xWing.addEventListener("dragstart", function (e) {
       onDragStart(e);
+      console.log(
+        "WHY ARE WE GIVING X-WING ITS OWN EVENTLISTENER FOR DRAGSTART INSIDE OF DRAGSHIPIMAGES.JS INSTEAD OF RUNNING ITS DRAG FUNCTIONALITY FROM "
+      );
       currentlyBeingPlaced = e.target;
       currentlyBeingPlacedID = e.target.id;
     });
@@ -66,6 +69,13 @@ export default function dragShipImages() {
   });
 }
 
+// export function belongsToShip(coord) {
+//   colouredCoordBelongsToShip.push(coord);
+// }
+// export function getColouredShipLocations() {
+//   return colouredCoordBelongsToShip;
+// }
+
 function onDragStart(e) {
   ////////////////////////////<-----------------------WE'RE LEAVING OFF HERE FOR TODAY, CONTINUE HERE TOMORROW!!! READ BELOW!!!!! -------------------------------->\\\\\\\\\\\\\\\\\\\\\\\\
   //I think we know how we can make it so we can remove the paint when we reposition a ship (only the current positions will be filled in, the old ones will have their styling removed)
@@ -76,25 +86,17 @@ function onDragStart(e) {
   //<----------
   //loop over the coordinates with paint on them, and remove the styling
   if (e.currentTarget.parentNode.classList.contains("squares")) {
-    let parentSquareOfImg = e.currentTarget.parentNode.id;
-    let actualParentSquareOfImgElement =
-      document.getElementById(parentSquareOfImg);
-    actualParentSquareOfImgElement.addEventListener("mouseleave", function () {
-      let reportPaintReference = reportPaint();
-      let recentPaint = [...reportPaintReference]; // <--- is this only returning an empty array?
+    // <-- translation: 'If the image we're dragging has already been placed in the gameboard'
 
-      clearRecord(); // <-- we have stored the array that holds those locations in our recentPaint variable, so now we empty the original array.
-      console.log(recentPaint);
-      for (let i = 0; i < recentPaint.length; i++) {
-        let toDepaint = document.getElementById(recentPaint[i]);
-        toDepaint.classList.add("black");
-        // toDepaint.classList.remove("colour-this-square");
-        if (toDepaint.classList.contains("allied-ship-location"))
-          toDepaint.classList.remove("allied-ship-location");
-        if (toDepaint.classList.contains("painted-square"))
-          toDepaint.classList.remove("painted-square");
-      }
-    });
+    let oldPaint = reportPaint();
+    for (let i = 0; i < oldPaint.length; i++) {
+      let elementToDepaint = document.getElementById(oldPaint[i]);
+      elementToDepaint.classList.remove("colour-this-square");
+    }
+    clearRecord();
+    // let parentSquareOfImg = e.currentTarget.parentNode.id;
+    // let actualParentSquareOfImgElement =
+    //   document.getElementById(parentSquareOfImg);
   }
   e.dataTransfer.setData("text/plain", e.target.id);
   e.dataTransfer.setDragImage(e.target, 0, 0);

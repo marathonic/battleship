@@ -31,13 +31,33 @@ export default function presentNextImage(arrayOfPictureIDs) {
 
   nextImage.classList.add("example-draggable-img");
   nextImage.draggable = true;
+  //check how many divs in example-origin (the div where new images appear)
+  if (exampleOrigin.childElementCount > 0) return;
+  //the code below will only run if exampleOrigin is empty
   exampleOrigin.appendChild(nextImage);
   nextImage.addEventListener("dragstart", function (e) {
     function onDragStart(e) {
+      let starShipName = arrayOfPictureIDs[0];
+      let classToRemove = "positioned-" + starShipName;
+      if (e.target.parentNode.classList.contains(classToRemove)) {
+        //REMOVE THE STYLING FROM ALL OF THE TARGET'S ASSOCIATED POSITIONS!!! AS SOON AS WE DROP THE IMAGE BACK INTO A SQUARE, THE STYLING WILL BE RE-ADDED TO THE NEW POSITIONS
+
+        let oldPositionsToRemove = document.querySelectorAll(
+          "." + classToRemove
+        );
+        for (let i = 0; i < oldPositionsToRemove.length; i++) {
+          let toBeRestyled = oldPositionsToRemove[i];
+          toBeRestyled.classList.remove(classToRemove);
+        }
+      }
+
       e.dataTransfer.setData("text/plain", e.target.id);
       e.dataTransfer.setDragImage(e.target, 0, 0);
       console.log("grabbing image");
       e.currentTarget.classList.add("grabbing");
+      console.log(
+        "THIS IS NOT X-WING, BUT WHY ARE WE GIVING X-WING ITS OWN EVENTLISTENER FOR ONDRAGSTART() INSTEAD OF BUNDLING IT WITH THE OTHERS? Lets fix that"
+      );
     }
 
     onDragStart(e);

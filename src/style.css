@@ -384,6 +384,14 @@ button {
       background-color: cyan;
   }
 
+  .positioned-x-wing,
+  .positioned-submarine,
+  .positioned-cruiser,
+  .positioned-battleship,
+  .positioned-carrier {
+      background-color: var(--cyberYellow);
+  }
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');

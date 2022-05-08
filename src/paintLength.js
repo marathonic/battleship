@@ -23,10 +23,7 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
     //do not proceed if vertical overflow
 
     if (indexOfLetter + lengthToFill > 10) {
-      console.log(
-        indexOfLetter +
-          "is higher than 5, would overflow the map, cannot place there"
-      );
+      console.log(indexOfLetter + "would overflow the map, cannot place there");
 
       return false;
     }
@@ -37,9 +34,11 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
       let coordToPaint = document.getElementById(coordData);
       console.log(coordData);
       console.log(coordToPaint);
-      coordToPaint.classList.add("colour-this-square");
+      let classToAdd = "positioned-" + imageIdee;
+      coordToPaint.classList.add(classToAdd);
+
       lastPaintedCoords(coordData);
-      indexOfLetter++; // <--- first loop: A1, second loop: B10, etc...a vertical line
+      indexOfLetter++; // <--- first loop: A1, second loop: B1, etc...a vertical line
     }
   }
 
@@ -60,7 +59,9 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
     for (let i = 0; i < lengthToFill; i++) {
       let coordData = letter + num;
       let coordToPaint = document.getElementById(coordData);
-      coordToPaint.classList.add("colour-this-square");
+      // coordToPaint.classList.add("colour-this-square");
+      let classToAdd = "positioned-" + imageIdee;
+      coordToPaint.classList.add(classToAdd);
       lastPaintedCoords(coordData);
       num++; // <-- a horizontal line
     }
