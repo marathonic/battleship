@@ -355,11 +355,44 @@ button {
   div.on-board > #submarine {
       width: 200%;
       z-index: 99;
+      opacity: 99%;
   } 
 
-  .squares.placement-stage.on-board > #submarine {
+  div.on-board > #submarine.rotate-vertical {
+      width: 100%;
+      height: 200%;
+      z-index: 99;
       opacity: 99%;
   }
+
+  div.on-board > #cruiser {
+      width: 230%;
+      opacity: 99%;
+  }
+
+  div.on-board > #cruiser.rotate-vertical {
+      width: 100%;
+      height: 200%;
+      z-index: 99;
+      opacity: 99%;
+  }
+
+  div.on-board > #battleship {
+      width: 300%;
+      z-index: 99;
+      opacity: 99%;
+  }
+
+  div.on-board > #battleship.rotate-vertical {
+      width: 200%;
+      height: 200%;
+      z-index: 99;
+      opacity: 99%;
+  }
+
+  /* .squares.placement-stage.on-board > #submarine {
+      opacity: 99%;
+  } */
 
   /* .grabbing#submarine */
   
