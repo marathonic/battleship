@@ -36,7 +36,7 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
       console.log(coordToPaint);
       let classToAdd = "positioned-" + imageIdee;
       coordToPaint.classList.add(classToAdd);
-
+      coordToPaint.classList.toggle("on-board");
       lastPaintedCoords(coordData);
       indexOfLetter++; // <--- first loop: A1, second loop: B1, etc...a vertical line
     }
@@ -62,6 +62,8 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
       // coordToPaint.classList.add("colour-this-square");
       let classToAdd = "positioned-" + imageIdee;
       coordToPaint.classList.add(classToAdd);
+      coordToPaint.classList.toggle("on-board");
+
       lastPaintedCoords(coordData);
       num++; // <-- a horizontal line
     }

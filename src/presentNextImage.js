@@ -30,6 +30,7 @@ export default function presentNextImage(arrayOfPictureIDs) {
   }
 
   nextImage.classList.add("example-draggable-img");
+  nextImage.classList.add("aboslute-position");
   nextImage.draggable = true;
   //check how many divs in example-origin (the div where new images appear)
   if (exampleOrigin.childElementCount > 0) return;

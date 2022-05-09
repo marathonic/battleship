@@ -279,6 +279,11 @@ button {
     grid-row: 2;
     grid-column: 2;
     justify-content: center;
+    /* z-index: inherit; */
+}
+
+.absolute-position {
+    /* z-index: 10; */
 }
 
 /* ////////////// FIND out if there's a div that is only present when there is a ship being presented */
@@ -295,10 +300,11 @@ button {
   }
   
   .example-origin {
-    flex-basis: 100%;
+    /* flex-basis: 100%; */
     /* flex-grow: 1; */
 
-    display: flex;
+    /* display: flex; */
+    position: absolute;
     justify-content: center;
   }
   
@@ -315,12 +321,13 @@ button {
     /* background: url('./img/xwing.png') no-repeat; */
     /* font-weight: normal; */
     
-    max-width: max-content;
-    max-height: max-content;
+    max-width: 500px;
+    max-height: 420px;
     width: 90%;
     height: 70%; 
     justify-items: center;
     align-self: center;
+    margin-top: -30%;
     /* margin-bottom: 10px;
     margin-top: 10px;
     padding: 10px; */
@@ -338,6 +345,23 @@ button {
       /* background: none; */
     /* transform: translate(0,0); */
   }
+
+  .squares > .grabbing {
+      max-width: 100%;
+      max-height: 100%;
+  }
+
+
+  div.on-board > #submarine {
+      width: 200%;
+      z-index: 99;
+  } 
+
+  .squares.placement-stage.on-board > #submarine {
+      opacity: 99%;
+  }
+
+  /* .grabbing#submarine */
   
   
   .example-dropzone {
