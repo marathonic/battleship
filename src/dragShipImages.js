@@ -33,6 +33,9 @@ export default function dragShipImages() {
     let currentlyBeingPlaced;
     let currentlyBeingPlacedID;
     xWing.addEventListener("dragstart", function (e) {
+      //here we go. This is where we're going to remove old stylings
+      if (e.target.parentNode.classList.contains("positioned-x-wing"))
+        e.target.parentNode.classList.remove("positioned-x-wing");
       onDragStart(e);
       console.log(
         "WHY ARE WE GIVING X-WING ITS OWN EVENTLISTENER FOR DRAGSTART INSIDE OF DRAGSHIPIMAGES.JS INSTEAD OF RUNNING ITS DRAG FUNCTIONALITY FROM "
