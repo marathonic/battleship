@@ -10,7 +10,7 @@ export default function component() {
   //Title
   const title = document.createElement("h1");
   title.innerHTML = "Starship";
-  const btn = document.createElement("button");
+  // const btn = document.createElement("button");
 
   //Get the coordinates with ships on them. shipsHere[] from variable
   // can we use the Game Module as an escrow for DOM and logic?
@@ -59,6 +59,8 @@ export default function component() {
   dragDiv.classList.add("drag-div");
   background.appendChild(title);
   background.appendChild(dragDiv);
+  //let's try creating out rotate button here
+  //
   element.appendChild(background);
   return element;
 }

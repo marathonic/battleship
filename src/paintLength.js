@@ -51,7 +51,7 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
 
     //do not proceed if horizontal overflow
 
-    if (num + lengthToFill > 10) {
+    if (num + lengthToFill - 1 > 10) {
       console.log(`${num + lengthToFill} is larget than 10`);
       return false;
     }
