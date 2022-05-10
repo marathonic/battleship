@@ -9,3 +9,21 @@ export default function readyBtnClick() {
   });
   allImages.forEach((img) => img.parentNode.removeChild(img));
 }
+
+export function repositionBoardOne() {
+  removeBtnContainerDiv();
+  let boardOneInContainer = document.querySelector(".board1");
+  let board1Outside;
+  board1Outside = boardOneInContainer;
+  let dragDiv = document.querySelector(".drag-div");
+  dragDiv.removeChild(boardOneInContainer); // <-- remove from dragDiv
+  dragDiv.parentNode.removeChild(dragDiv); // <-- remove dragDiv
+  let bg = document.querySelector(".bg");
+  board1Outside.classList.add("board1-outside");
+  bg.appendChild(board1Outside);
+}
+
+function removeBtnContainerDiv() {
+  let btnContainerDiv = document.querySelector("#btn-container-div");
+  btnContainerDiv.parentNode.removeChild(btnContainerDiv);
+}

@@ -85,10 +85,23 @@ h1 {
 .boards div:nth-of-type(10) {
     border-top-right-radius: 100%;
 }
-
+/* 
 .boards div:last-of-type {
     border-bottom-right-radius: 100%;
+    border: solid white 3px;
+} */
+
+div#J10.squares {
+
+    border-bottom-right-radius: 100%;
+    /* border: solid white 3px; */
 }
+/* 
+.squares:last-of-type {
+    border-bottom-right-radius: 100%;
+    border: solid white 3px;
+
+} */
 
 
 
@@ -515,7 +528,7 @@ button {
       padding-top: 15px;
   }
 
-  .ready-btn {
+  .ready-btn { 
     justify-self: center;
     align-self: center;
     margin-top: 10%;
@@ -529,6 +542,17 @@ button {
     height: fit-content;
     padding: 7%;
     cursor: pointer;
+  }
+
+  .board1-outside {
+
+    width: 25vw;
+    height: 35vh;
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: center;
+    align-self: flex-end;
+
   }
 
 @font-face {

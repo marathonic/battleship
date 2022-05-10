@@ -1,4 +1,4 @@
-import readyBtnClick from "./repositionBoard";
+import readyBtnClick, { repositionBoardOne } from "./repositionBoard";
 
 export default function createReadyBtn() {
   removeRotateBtn();
@@ -9,6 +9,7 @@ export default function createReadyBtn() {
   readyBtn.addEventListener("click", function () {
     readyBtnClick();
     removeReadyBtn();
+    repositionBoardOne();
     // <--- attach board2
   });
   let btnContainerDiv = document.querySelector("#btn-container-div");
