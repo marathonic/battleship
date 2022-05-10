@@ -425,6 +425,23 @@ button {
       opacity: 99%;
   }
 
+  div.on-board > #carrier {
+      width: 430%;
+      height: 100%;
+      opacity: 99%;
+  }
+
+  div.on-board > #carrier.rotate-vertical {
+      margin: 0;
+      transform-origin: top left;
+      width: 300%;
+      height: 100%;
+      position: relative;
+  }
+
+  div.on-board:has #carrier.rotate-vertical{
+  }
+
 
   /* .squares.placement-stage.on-board > #submarine {
       opacity: 99%;
