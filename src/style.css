@@ -333,6 +333,33 @@ button {
     padding: 10px; */
   }
 
+  #battleship.example-draggable-img {
+      /* transform-origin: 0; */
+      max-width: 30%;
+      max-height: 30%;
+      margin-top: -40%;
+      /* padding-left: 20%; */
+  }
+
+  #battleship.grabbing {
+      margin-top: -38%;
+      max-width: 16%;
+      max-height: 16%;
+      /* opacity: 70%; */
+  }
+
+  #carrier.example-draggable-img {
+      max-width: 100%;
+      max-height: 100%;
+      margin-left: -16%;
+  }
+
+  #carrier.grabbing {
+      margin-left: 0;
+      max-width: 30%;
+      max-height: 30%;
+  }
+
   #x-wing {
       /* background: none; */
     /* transform: translate(0,0); */
