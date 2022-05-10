@@ -8,6 +8,7 @@ import addDeployShipsBtn from "./deployShipsBtn";
 import generateComputerHologram from "./generateComputerHologram";
 import generateHumanHologram from "./generateHumanHologram";
 import dragShipImages from "./dragShipImages";
+import readyBtnClick from "./repositionBoard";
 
 document.body.appendChild(component());
 document.body.appendChild(addDeployShipsBtn());
