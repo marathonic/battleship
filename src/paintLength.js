@@ -8,6 +8,16 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
   if (orientation === undefined) orientation = "horizontal";
   let theImage = document.getElementById(imageIdee);
   if (theImage.classList.contains("rotate-vertical")) orientation = "vertical";
+  if (
+    theImage.id === "battleship" &&
+    !theImage.classList.contains("rotate-vertical")
+  )
+    orientation = "vertical";
+  if (
+    theImage.id === "battleship" &&
+    theImage.classList.contains("rotate-vertical")
+  )
+    orientation = "horizontal";
 
   let letterCells = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 

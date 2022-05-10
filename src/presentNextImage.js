@@ -1,6 +1,6 @@
 import submarine from "./img/resurrection.png";
 import cruiser from "./img/enterprise2.png";
-import battleship from "./img/normandy.png";
+import battleship from "./img/gundam-suit.png";
 
 export default function presentNextImage(arrayOfPictureIDs) {
   let nextImage = document.createElement("img");

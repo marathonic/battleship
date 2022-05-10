@@ -376,19 +376,28 @@ button {
       z-index: 99;
       opacity: 99%;
   }
-
+  
   div.on-board > #battleship {
-      width: 300%;
+      transform: rotate(0deg);
+      /* justify-self: center; */
+      width: 100%;
+      height: 400%;
       z-index: 99;
       opacity: 99%;
   }
 
   div.on-board > #battleship.rotate-vertical {
-      width: 200%;
-      height: 200%;
-      z-index: 99;
+      transform: rotate(270deg);
+      transform-origin: top center;
+    /* transform-origin: 0;  */
+    /* margin-bottom: -300%; */
+    /* padding-right: 20px; */
+      width: 96%;
+      height: 500%;
+      /* z-index: 99; */
       opacity: 99%;
   }
+
 
   /* .squares.placement-stage.on-board > #submarine {
       opacity: 99%;
