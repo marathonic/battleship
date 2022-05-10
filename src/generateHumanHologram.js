@@ -146,15 +146,16 @@ export default function generateHumanHologram() {
       presentNextImage(markedAsPlaced);
     }
     setTimeout(() => {
-      let rotateBtnContainerDiv = document.createElement("div");
+      let btnContainerDiv = document.createElement("div");
+      btnContainerDiv.id = "btn-container-div";
       let rotateBtn = document.createElement("button");
       rotateBtn.id = "rotate-button";
       rotateBtn.innerHTML = "rotate";
       rotateBtn.classList = "rotate-btn";
-      rotateBtnContainerDiv.classList.add("rotate-btn-container");
-      rotateBtnContainerDiv.appendChild(rotateBtn);
+      btnContainerDiv.classList.add("rotate-btn-container");
+      btnContainerDiv.appendChild(rotateBtn);
 
-      board1.appendChild(rotateBtnContainerDiv);
+      board1.appendChild(btnContainerDiv);
       rotateImg();
     }, 300);
   });

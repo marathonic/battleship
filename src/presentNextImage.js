@@ -2,6 +2,7 @@ import submarine from "./img/resurrection.png";
 import cruiser from "./img/enterprise2.png";
 import battleship from "./img/gundam-suit.png";
 import carrier from "./img/super-star-destroyer.png";
+import createReadyBtn from "./createReadyBtn";
 
 export default function presentNextImage(arrayOfPictureIDs) {
   let nextImage = document.createElement("img");
@@ -30,6 +31,11 @@ export default function presentNextImage(arrayOfPictureIDs) {
     case "battleship":
       nextImage.src = carrier;
       nextImage.id = "carrier";
+      break;
+
+    case "carrier":
+      createReadyBtn();
+      break;
 
     default:
       break;

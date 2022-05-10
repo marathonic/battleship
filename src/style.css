@@ -515,6 +515,22 @@ button {
       padding-top: 15px;
   }
 
+  .ready-btn {
+    justify-self: center;
+    align-self: center;
+    margin-top: 10%;
+    margin-left: 395%;
+    background-color: #d60338;
+    font-family: 'Righteous';
+    font-size: 60px;
+    color: rgb(9, 9, 75);
+    color: white;
+    max-width: 70vw;
+    height: fit-content;
+    padding: 7%;
+    cursor: pointer;
+  }
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');
