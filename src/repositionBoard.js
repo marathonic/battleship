@@ -11,6 +11,8 @@ export default function readyBtnClick() {
 }
 
 export function repositionBoardOne() {
+  let allSq = document.querySelectorAll(".squares");
+  allSq.forEach((sq) => sq.classList.add("fade"));
   removeBtnContainerDiv();
   let boardOneInContainer = document.querySelector(".board1");
   let board1Outside;

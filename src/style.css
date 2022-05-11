@@ -555,6 +555,94 @@ button {
 
   }
 
+  /* /////
+
+  HERE BEGINS THE IMPLEMENTATION OF THE STOLEN CODE FROM 1stwebdesigner.com/trippy-css-distortion-effects/ 
+
+
+  ////
+  */
+
+  
+
+
+
+  /* CONTINUE HERE!!!!!!!!!! FInd a way to give this class to the squares at the moment that 
+  we click the READY button, and then wait 1s for the animation to finish before removing the class
+  and then adding the fade class as it's repositioned below to make it look like it's appearing  */
+  .fade{ 
+      /* animation: glitch 2s linear 2s; */
+      animation: fade 1s linear 0s;
+  }
+  
+  @keyframes glitch{
+
+    0% { opacity: 1}
+    100% { opacity: 0 }
+
+    99%,94%{
+      transform: translate(-99px,100) skew(0deg);
+    }
+    4%,60%{
+      transform: translate(99px,100) skew(10deg);
+    }
+    62%{
+      transform: translate(0,0) skew(75deg); 
+    }
+  }
+
+  @keyframes fade {
+      0% { opacity: 0 }
+      100% { opacity: 1}
+  } 
+  
+  .glitch:before,
+  .glitch:after{
+    content: attr(title);
+    position: absolute;
+    left: 0;
+  }
+  
+  .glitch:before{
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+  }
+  
+  @keyframes glitchTop{
+    2%,64%{
+      transform: translate(2px,-2px);
+    }
+    4%,60%{
+      transform: translate(-2px,2px);
+    }
+    62%{
+      transform: translate(13px,-1px) skew(-13deg); 
+    }
+  }
+  
+  .squares.placement-stage:after{
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+  }
+  
+  @keyframes glitchBotom{
+    2%,64%{
+      transform: translate(-2px,0);
+    }
+    4%,60%{
+      transform: translate(-2px,0);
+    }
+    62%{
+      transform: translate(-22px,5px) skew(21deg); 
+    }
+  }
+/* 
+  and here ends that implementation
+  //////////////// */
+
+
 @font-face {
     font-family: 'Righteous';
     src: url('./fonts/Righteous-Regular.ttf') format('truetype');
