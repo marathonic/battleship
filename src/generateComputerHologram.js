@@ -35,8 +35,10 @@ export default function generateComputerHologram() {
       let square = document.createElement("div");
       square.id = currentLetter + constructHorizontalComputer[j]; // making its id equal the current letter + a number, up to number 10. Example: A7
       square.classList.add("squares-computer");
-      square.classList.add("invisible");
+      // square.classList.add("invisible");
       board2.appendChild(square);
     }
   }
+  let bg = document.querySelector(".bg");
+  bg.appendChild(board2);
 }

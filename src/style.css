@@ -117,7 +117,7 @@ ATTENTION
 IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
 
 .boards.board2{
-    margin-left: 15vw;
+    /* margin-left: 15vw; */
     border:dashed 1px rgba(255, 220, 0, 0.1);
     border: none;
     border-top-left-radius: 10%;
@@ -126,8 +126,9 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
     border-bottom-right-radius: 10%;
     width: 70vw;
     height: 30vh;
-
+    
     grid-row:2;
+    grid-column: 2;
     /* border-start-end-radius: 70%; */
 }
 
