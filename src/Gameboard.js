@@ -18,7 +18,7 @@ export function Gameboard() {
   //For human boards:
 
   return {
-    placeShip(shipModel, ...coordies) {
+    placeShip(shipModel, [...coordies]) {
       ship = Ship(shipModel);
       let coordinates = coordies;
       // <-- register [{destroyer: 'A7'}, {anotherShip: 'coordinates'}, {etc...}];

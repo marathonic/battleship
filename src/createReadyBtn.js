@@ -1,3 +1,4 @@
+import Game from "./Game";
 import generateComputerHologram from "./generateComputerHologram";
 import readyBtnClick, { repositionBoardOne } from "./repositionBoard";
 

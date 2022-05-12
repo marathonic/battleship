@@ -8,6 +8,7 @@ export default function readyBtnClick() {
     sq.classList.remove("squares-animation");
   });
   allImages.forEach((img) => img.parentNode.removeChild(img));
+  // Game();
 }
 
 export function repositionBoardOne() {

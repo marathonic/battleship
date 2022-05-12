@@ -1,3 +1,5 @@
+import newGamePlus from "./newGamePlus";
+
 export default function generateComputerHologram() {
   //Board for computer
   const board2 = document.createElement("div");
@@ -41,4 +43,5 @@ export default function generateComputerHologram() {
   }
   let bg = document.querySelector(".bg");
   bg.appendChild(board2);
+  newGamePlus();
 }
