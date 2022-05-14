@@ -10,6 +10,7 @@ import { randomPositionsFor } from "./randomPositionsFor";
 
 export function Gameboard() {
   let shipsHere = []; // <-- contains the coordinate locations on which ships have been placed
+  let spotsTaken = []; // <-- does the same as shipsHere, but for computer (???)
   let missedShots = [];
   let sunkShips = [];
   let ship;
@@ -50,25 +51,22 @@ export function Gameboard() {
     //1) The returned coordinates are not being used by any other ships.
     //2) The returned coordinates are not outside of the map... <-- Is that appropriate for here?
 
-    generateComputerPositionsFor([typeOfShip]) {
+    registerComputerPositionsFor(typeOfShip) {
       // let ship; you already have typeOfShip.
-      let spotsTaken = [];
       // if we need the length, we can get it from the length of the array
       let newPositionsToPlace = randomPositionsFor(typeOfShip);
-      while (spotsTaken.includes(newPositionsToPlace)) {
+
+      // while (spotsTaken.includes(newPositionsToPlace))
+      // <-- while newPositionsToPlace includes ANY coord that exists in spotsTaken, re-run the code
+      while (
+        spotsTaken.some((coord) => newPositionsToPlace.indexOf(coord) !== -1)
+      ) {
         newPositionsToPlace = randomPositionsFor(typeOfShip);
       }
       spotsTaken.push(newPositionsToPlace);
-
-      //
-      if (randomFirstSquare + horizontalCoord > horizontalNumberArray.length)
-        //would overflow run again
-        return positions;
-
-      //need a modified computerMove(), (let's call it firstSquare() ) to get the first square to be placed:
-      //wait, why do you need a separate function for the first square?
-      // wouldn't it make more sense to just get all the positions at a time?
-      //let's try that:
+      shipsHere.push(newPositionsToPlace);
+      console.log(spotsTaken);
+      return newPositionsToPlace;
     },
     receiveAttack(coordinates) {
       try {

@@ -59,7 +59,7 @@ export const randomPositionsFor = (typeOfShip) => {
 
     for (let i = 0; i < shipLength; i++) {
       let newShipCoordinate =
-        horizontalNumberArray[xSpot] + verticalLetterArray[ySpot];
+        verticalLetterArray[ySpot] + horizontalNumberArray[xSpot];
       coordsToSet.push(newShipCoordinate);
       //get sibling IDs here, not the DOM.
       xSpot++;
@@ -73,7 +73,7 @@ export const randomPositionsFor = (typeOfShip) => {
 
     for (let i = 0; i < shipLength; i++) {
       let newShipCoordinate =
-        horizontalNumberArray[xSpot] + verticalLetterArray[ySpot];
+        verticalLetterArray[ySpot] + horizontalNumberArray[xSpot];
       coordsToSet.push(newShipCoordinate);
       ySpot++;
     }
