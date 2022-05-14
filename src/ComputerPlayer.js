@@ -22,6 +22,21 @@ export function ComputerPlayer() {
     // return cpuMoves[cpuMoves.length - 1];
   };
 
+  //This is the function we're talking about in newGamePlus.js
+
+  function randomlyPosition(shipType) {
+    let xPosition = Math.floor(Math.random() * 10);
+    let yPosition = Math.floor(Math.random() * 10);
+    let firstSquarePosition = vertical[yPosition] + horizontal[xPosition];
+    switch (shipType) {
+      case "submarine":
+        break;
+
+      default:
+        break;
+    }
+  }
+
   return {
     computerMove,
     getComputerMoves() {

@@ -12,6 +12,8 @@ export default function newGamePlus() {
   let computer = ComputerPlayer();
   let computerBoard = Gameboard();
 
+  // setPositionLogic scans board and assigns each ship's coordinates to the ship in the game logic.
+
   humanBoard.placeShip("destroyer", setPositionLogic("x-wing"));
   humanBoard.placeShip("submarine", setPositionLogic("submarine"));
   humanBoard.placeShip("cruiser", setPositionLogic("cruiser"));

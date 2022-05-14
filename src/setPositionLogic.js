@@ -1,3 +1,5 @@
+//This function scans the DOM for positioned ships and then returns the [positions] of the ship given as parameter.
+
 export default function setPositionLogic(shipType) {
   let filled = document.querySelectorAll(".on-board");
   let positions = [];

@@ -1,5 +1,7 @@
 import { Ship } from "./Ship";
 import component from "./component";
+import coinToss, { randomOutOfTen } from "./coinToss";
+import { randomPositionsFor } from "./randomPositionsFor";
 
 //<------- How to place ships
 //Needs to get input from the DOM.
@@ -39,6 +41,34 @@ export function Gameboard() {
     },
     shipsObjectPls() {
       return shipsObject;
+    },
+
+    //OK LET'S THINK ABOUT THIS:
+    //Over here, we don't actually need to write all of the functionality in here.
+    //What we want in here is to just check if the result of running a function is returning us a valid value.
+    //In this case, a valid value would need to pass 2 conditions:
+    //1) The returned coordinates are not being used by any other ships.
+    //2) The returned coordinates are not outside of the map... <-- Is that appropriate for here?
+
+    generateComputerPositionsFor([typeOfShip]) {
+      // let ship; you already have typeOfShip.
+      let spotsTaken = [];
+      // if we need the length, we can get it from the length of the array
+      let newPositionsToPlace = randomPositionsFor(typeOfShip);
+      while (spotsTaken.includes(newPositionsToPlace)) {
+        newPositionsToPlace = randomPositionsFor(typeOfShip);
+      }
+      spotsTaken.push(newPositionsToPlace);
+
+      //
+      if (randomFirstSquare + horizontalCoord > horizontalNumberArray.length)
+        //would overflow run again
+        return positions;
+
+      //need a modified computerMove(), (let's call it firstSquare() ) to get the first square to be placed:
+      //wait, why do you need a separate function for the first square?
+      // wouldn't it make more sense to just get all the positions at a time?
+      //let's try that:
     },
     receiveAttack(coordinates) {
       try {
