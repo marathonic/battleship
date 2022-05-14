@@ -18,6 +18,7 @@ export function Gameboard() {
   let targetShip;
   let allCoordinatesOnMap = [];
   let testLocationArray = ["A1", "A8", "A9"]; // <-------- WE'RE GOING TO SEND THE PLACEMENT COORDINATES THE USER CHOOSES TO AN ARRAY, JUST LIKE THIS.
+  let registeredHitsOnHuman = [];
   //For human boards:
 
   return {
@@ -64,7 +65,7 @@ export function Gameboard() {
         newPositionsToPlace = randomPositionsFor(typeOfShip);
       }
       spotsTaken.push(newPositionsToPlace);
-      shipsHere.push(newPositionsToPlace);
+      // shipsHere.push(newPositionsToPlace);
       console.log(spotsTaken);
       return newPositionsToPlace;
     },
@@ -75,14 +76,17 @@ export function Gameboard() {
           // console.log("cant hit same position twice");
           return false;
         }
+        if (registeredHitsOnHuman.includes(coordinates)) return false;
         // <-- is there a ship at those coordinates? If yes, proceed with line below
         if (shipsHere.some((e) => e.positions.includes(coordinates))) {
           targetShip = shipsHere.find((e) => e.positions.includes(coordinates)); // <-- we get the ship at the input coordinates (the targeted ship's own object)
           if (targetShip.damage.includes(coordinates)) return false; // <-- if that position has already been hit, return false.
 
           targetShip.hit(coordinates);
-          if (sunkShips.length === 2) {
+
+          if (sunkShips.length === 5) {
             console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
+            alert("ALL SHIPS SUNK");
             return false;
             return "THE GAME IS OVER, ALL SHIPS ARE SUNK";
           }
@@ -92,6 +96,12 @@ export function Gameboard() {
             console.log(`Direct hit! ${targetShip.getName()} has been sunk`);
             return true;
             return `${targetShip.getName()} has been sunk`;
+          }
+          let shipAttacked = document.getElementById(coordinates);
+          if (shipAttacked.classList.contains("on-board")) {
+            //if this is running, that means this is a human ship
+            shipAttacked.classList.add("hit-position-human");
+            registeredHitsOnHuman.push(coordinates);
           }
           console.log(
             `${targetShip.getName()} has been hit. HP Reamining: ${targetShip.getLength()}`
@@ -112,7 +122,11 @@ export function Gameboard() {
       return missedShots;
     },
     reportSunk() {
-      return sunkShips.length === shipsHere.length ? true : false;
+      if (sunkShips.length === 5) {
+        alert("all ships sunk");
+        return true;
+      }
+      // return sunkShips.length === shipsHere.length ? true : false;
     },
     hoverLength() {
       switch (shipsHere.length) {

@@ -556,6 +556,10 @@ button {
 
   }
 
+  .hit-position-human {
+      background-color: red;
+  }
+
   /* /////
 
   HERE BEGINS THE IMPLEMENTATION OF THE STOLEN CODE FROM 1stwebdesigner.com/trippy-css-distortion-effects/ 
