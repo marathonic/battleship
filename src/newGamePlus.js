@@ -1,6 +1,7 @@
 import { ComputerPlayer } from "./ComputerPlayer";
 import { Gameboard } from "./Gameboard";
 import HumanPlayer from "./HumanPlayer";
+import { randomPositionsFor } from "./randomPositionsFor";
 import setPositionLogic from "./setPositionLogic";
 
 //This is a newer version of our Game()
@@ -22,6 +23,13 @@ export default function newGamePlus() {
   //
   //   computerBoard.placeShip(modifiedComputerMoveThatPlacesShips()) // <-- place computer ships randomly
   // computerBoard.placeShip(modifiedComputerMoveThatPlacesShips())
+
+  //trying out new functions with existing code
+  computerBoard.placeShip("destroyer", randomPositionsFor("destroyer"));
+  computerBoard.placeShip("submarine", randomPositionsFor("submarine"));
+  computerBoard.placeShip("cruiser", randomPositionsFor("cruiser"));
+  computerBoard.placeShip("battleship", randomPositionsFor("battleship"));
+  computerBoard.placeShip("carrier", randomPositionsFor("battleship"));
 
   // computerBoard.placeShip('submarine', 'C3','C4' ) // <-- When hovering X ship on grid, X ship highlights X squares on DOM. On click, put those squares' id into an Array. Return that array (holds our coordinates). We then change the parameters of placeShip to take the <...coordinates> array. We'll have to figure out how to get them out of the array. RIght now we're getting individual values, but with an array, we would get a double array [['A1','A2', 'etc.']]
 

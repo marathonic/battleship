@@ -23,19 +23,19 @@ export function ComputerPlayer() {
   };
 
   //This is the function we're talking about in newGamePlus.js
+  // <--- commenting this out on 14 May 2022 at 10:47
+  // function randomlyPosition(shipType) {
+  //   let xPosition = Math.floor(Math.random() * 10);
+  //   let yPosition = Math.floor(Math.random() * 10);
+  //   let firstSquarePosition = vertical[yPosition] + horizontal[xPosition];
+  //   switch (shipType) {
+  //     case "submarine":
+  //       break;
 
-  function randomlyPosition(shipType) {
-    let xPosition = Math.floor(Math.random() * 10);
-    let yPosition = Math.floor(Math.random() * 10);
-    let firstSquarePosition = vertical[yPosition] + horizontal[xPosition];
-    switch (shipType) {
-      case "submarine":
-        break;
-
-      default:
-        break;
-    }
-  }
+  //     default:
+  //       break;
+  //   }
+  // }
 
   return {
     computerMove,

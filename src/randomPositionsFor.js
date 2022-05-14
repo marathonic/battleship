@@ -55,6 +55,7 @@ export const randomPositionsFor = (typeOfShip) => {
   if (orientation == "horizontal") {
     //The limiter allows us to make sure we're not placing spots outside of the board
     xSpot = randomLimiterFor(typeOfShip);
+    ySpot = randomOutOfTen();
 
     for (let i = 0; i < shipLength; i++) {
       let newShipCoordinate =
@@ -68,6 +69,8 @@ export const randomPositionsFor = (typeOfShip) => {
   if (orientation == "vertical") {
     //The limiter allows us to make sure we're not placing spots outside of the board
     ySpot = randomLimiterFor(typeOfShip);
+    xSpot = randomOutOfTen();
+
     for (let i = 0; i < shipLength; i++) {
       let newShipCoordinate =
         horizontalNumberArray[xSpot] + verticalLetterArray[ySpot];
