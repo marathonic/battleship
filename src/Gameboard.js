@@ -97,9 +97,12 @@ export function Gameboard() {
             return true;
             return `${targetShip.getName()} has been sunk`;
           }
-          let shipAttacked = document.getElementById(coordinates);
-          if (shipAttacked.classList.contains("on-board")) {
+          let shipAttacked = document.querySelector(
+            "#" + coordinates + ".squares-computer"
+          );
+          if (!shipAttacked.classList.contains("on-board")) {
             //if this is running, that means this is a human ship
+            // how can we make sure it's not also a computer ship?
             shipAttacked.classList.add("hit-position-human");
             registeredHitsOnHuman.push(coordinates);
           }

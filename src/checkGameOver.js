@@ -7,7 +7,7 @@ function checkGameOver() {
     alert("Human wins");
     return;
   }
-  if (allHumanPOsitions.length === 15) {
+  if (allHumanPositions.length === 15) {
     alert("Computer wins");
     return;
   }
