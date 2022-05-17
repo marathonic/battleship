@@ -1,4 +1,5 @@
 import { ComputerPlayer } from "./ComputerPlayer";
+import correctDOMHitsOnHuman from "./correctDOMHitsOnHuman";
 import { Gameboard } from "./Gameboard";
 import HumanPlayer from "./HumanPlayer";
 import { randomPositionsFor } from "./randomPositionsFor";
@@ -57,7 +58,7 @@ export default function newGamePlus() {
 
   human.sendsAttack(computerBoard, computer, humanBoard); //// <--------ATTENTION!!! WE LEFT OFF ON LINE 33 (THE LINE BELOW THIS ONE) PICK IT BACK UP THERE, WE ALREADY HAVE THAT LOGIC WRITTEN SOMEWHERE.
   //computer attacks here.
-
+  // correctDOMHitsOnHuman();
   //lets run some
   // human.attack('A2')
   // <-- write modified computerMove() that places coordinates.

@@ -47,7 +47,7 @@ export function Ship(shipType) {
       length--;
       previouslyHit.push(position);
       console.log("HIT IS BEING CALLED FROM SHIP");
-      return true;
+      return;
     },
     isSunk() {
       if (previouslyHit.length === originalLength || length <= 0) {

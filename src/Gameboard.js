@@ -83,7 +83,82 @@ export function Gameboard() {
           if (targetShip.damage.includes(coordinates)) return false; // <-- if that position has already been hit, return false.
 
           targetShip.hit(coordinates);
+          //currentShipDamage means the damage that's been inflicted upon the current ship
 
+          setTimeout(() => {
+            let currentShipDamage = targetShip.damageReport();
+            for (let i = 0; i < currentShipDamage.length; i++) {
+              let currentID = currentShipDamage[i];
+              let selectHumansID = document.querySelector(
+                "#" + currentID + ".squares"
+              );
+              selectHumansID.classList.add("position-hit");
+              console.log(currentShipDamage);
+            }
+          }, 299);
+          if (sunkShips.length === 5) {
+            console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
+            alert("ALL SHIPS SUNK");
+            return false;
+            return "THE GAME IS OVER, ALL SHIPS ARE SUNK";
+          }
+          if (targetShip.isSunk()) {
+            targetShip.isSunk = true;
+            sunkShips.push(targetShip.getName());
+            console.log(`Direct hit! ${targetShip.getName()} has been sunk`);
+            return true;
+            return `${targetShip.getName()} has been sunk`;
+          }
+          let shipAttacked = document.querySelector(
+            "#" + coordinates + ".squares-computer"
+          );
+          if (!shipAttacked.classList.contains("on-board")) {
+            //if this is running, that means this is a human ship
+            // how can we make sure it's not also a computer ship?
+            shipAttacked.classList.add("hit-position-human");
+            registeredHitsOnHuman.push(coordinates);
+          }
+          console.log(
+            `${targetShip.getName()} has been hit. HP Reamining: ${targetShip.getLength()}`
+          );
+          return true;
+          return `${targetShip.getName()} hit, HP: ${targetShip.getLength()}`;
+        } else {
+          missedShots.push(coordinates);
+          console.log("MISS");
+          return false;
+          return "miss"; // ('miss' for testing purposes, change to false!)<-- player hit the water, there's no ships there
+        }
+      } catch (err) {
+        return err;
+      }
+    },
+    computerReceivesAttack(coordinates) {
+      try {
+        //<-- if position has been hit before and was a miss, hit() => false
+        if (missedShots.includes(coordinates)) {
+          // console.log("cant hit same position twice");
+          return false;
+        }
+        if (registeredHitsOnHuman.includes(coordinates)) return false;
+        // <-- is there a ship at those coordinates? If yes, proceed with line below
+        if (shipsHere.some((e) => e.positions.includes(coordinates))) {
+          targetShip = shipsHere.find((e) => e.positions.includes(coordinates)); // <-- we get the ship at the input coordinates (the targeted ship's own object)
+          if (targetShip.damage.includes(coordinates)) return false; // <-- if that position has already been hit, return false.
+
+          targetShip.hit(coordinates);
+          //currentShipDamage means the damage that's been inflicted upon the current ship
+
+          setTimeout(() => {
+            let currentShipDamage = targetShip.damageReport();
+            for (let i = 0; i < currentShipDamage.length; i++) {
+              let currentID = currentShipDamage[i];
+              let selectComputersID = document.querySelector(
+                "#" + currentID + ".squares-computer"
+              );
+              selectComputersID.classList.add("position-hit");
+            }
+          }, 230);
           if (sunkShips.length === 5) {
             console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
             alert("ALL SHIPS SUNK");

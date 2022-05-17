@@ -26,7 +26,7 @@ export default function HumanPlayer(nameOfPlayer) {
     async sendsAttack(theComputersBoard, theComputerPlayer, theHumansBoard) {
       let computerBoard = document.querySelector(".board2");
       computerBoard.addEventListener("click", function (e) {
-        theComputersBoard.receiveAttack(e.target.id);
+        theComputersBoard.computerReceivesAttack(e.target.id);
         theComputerPlayer.attacks(theHumansBoard);
       });
     },
