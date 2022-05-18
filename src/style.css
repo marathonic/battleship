@@ -560,6 +560,14 @@ button {
       background-color: red;
   }
 
+  .certain-hit {
+      background-color: red;
+  }
+
+  .certain-miss {
+      background-color: white;
+  }
+
   /* /////
 
   HERE BEGINS THE IMPLEMENTATION OF THE STOLEN CODE FROM 1stwebdesigner.com/trippy-css-distortion-effects/ 

@@ -52,7 +52,7 @@ export default function newGamePlus() {
   humanBoard.getAllCoordinatesOnMap();
   computerBoard.getAllCoordinatesOnMap();
   computerBoard.reportClickedSquare(); // <---- COMPUTER BOARD COLOURS IN MATCHING POSITIONS
-  humanBoard.reportComputersAttacksOnBoard();
+  // humanBoard.reportComputersAttacksOnBoard();
 
   // humanBoard.reportAllHumanPositionsAttacked(); // <-- fill in when a human coordinate is attacked
 

@@ -71,6 +71,13 @@ export function Gameboard() {
     },
     receiveAttack(coordinates) {
       try {
+        let actualCoordinateDiv = document.querySelector("#" + coordinates);
+        if (actualCoordinateDiv.classList.contains("on-board")) {
+          actualCoordinateDiv.classList.add("certain-hit");
+        }
+        if (!actualCoordinateDiv.classList.contains("on-board")) {
+          actualCoordinateDiv.classList.add("certain-miss");
+        }
         //<-- if position has been hit before and was a miss, hit() => false
         if (missedShots.includes(coordinates)) {
           // console.log("cant hit same position twice");
@@ -85,17 +92,6 @@ export function Gameboard() {
           targetShip.hit(coordinates);
           //currentShipDamage means the damage that's been inflicted upon the current ship
 
-          setTimeout(() => {
-            let currentShipDamage = targetShip.damageReport();
-            for (let i = 0; i < currentShipDamage.length; i++) {
-              let currentID = currentShipDamage[i];
-              let selectHumansID = document.querySelector(
-                "#" + currentID + ".squares"
-              );
-              selectHumansID.classList.add("position-hit");
-              console.log(currentShipDamage);
-            }
-          }, 299);
           if (sunkShips.length === 5) {
             console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
             alert("ALL SHIPS SUNK");
@@ -112,12 +108,6 @@ export function Gameboard() {
           let shipAttacked = document.querySelector(
             "#" + coordinates + ".squares-computer"
           );
-          if (!shipAttacked.classList.contains("on-board")) {
-            //if this is running, that means this is a human ship
-            // how can we make sure it's not also a computer ship?
-            shipAttacked.classList.add("hit-position-human");
-            registeredHitsOnHuman.push(coordinates);
-          }
           console.log(
             `${targetShip.getName()} has been hit. HP Reamining: ${targetShip.getLength()}`
           );
@@ -149,16 +139,16 @@ export function Gameboard() {
           targetShip.hit(coordinates);
           //currentShipDamage means the damage that's been inflicted upon the current ship
 
-          setTimeout(() => {
-            let currentShipDamage = targetShip.damageReport();
-            for (let i = 0; i < currentShipDamage.length; i++) {
-              let currentID = currentShipDamage[i];
-              let selectComputersID = document.querySelector(
-                "#" + currentID + ".squares-computer"
-              );
-              selectComputersID.classList.add("position-hit");
-            }
-          }, 230);
+          // setTimeout(() => {
+          //   let currentShipDamage = targetShip.damageReport();
+          //   for (let i = 0; i < currentShipDamage.length; i++) {
+          //     let currentID = currentShipDamage[i];
+          //     let selectComputersID = document.querySelector(
+          //       "#" + currentID + ".squares-computer"
+          //     );
+          // selectComputersID.classList.add("position-hit");
+          // }
+          // }, 230);
           if (sunkShips.length === 5) {
             console.log("THE GAME IS OVER, ALL SHIPS ARE SUNK DUDE");
             alert("ALL SHIPS SUNK");
@@ -175,12 +165,12 @@ export function Gameboard() {
           let shipAttacked = document.querySelector(
             "#" + coordinates + ".squares-computer"
           );
-          if (!shipAttacked.classList.contains("on-board")) {
-            //if this is running, that means this is a human ship
-            // how can we make sure it's not also a computer ship?
-            shipAttacked.classList.add("hit-position-human");
-            registeredHitsOnHuman.push(coordinates);
-          }
+          // if (!shipAttacked.classList.contains("on-board")) {
+          //   //if this is running, that means this is a human ship
+          //   // how can we make sure it's not also a computer ship?
+          //   shipAttacked.classList.add("hit-position-human");
+          //   registeredHitsOnHuman.push(coordinates);
+          // }
           console.log(
             `${targetShip.getName()} has been hit. HP Reamining: ${targetShip.getLength()}`
           );
@@ -266,23 +256,23 @@ export function Gameboard() {
         }, 100);
       });
     },
-    reportComputersAttacksOnBoard() {
-      let boardGetsClicked = document.querySelector(".board2");
-      boardGetsClicked.addEventListener("click", function () {
-        //now let's create the one for the human board
-        setTimeout(() => {
-          let humanSquares = document.querySelectorAll(".squares");
-          humanSquares.forEach((sq) => {
-            if (missedShots.includes(sq.id)) {
-              sq.classList.add("missed-shot-from-computer");
-            }
-            if (sq.classList.contains("allied-ship-location")) {
-              sq.classList.add("coloured-in-from-computer");
-            }
-          });
-        }, 300);
-      });
-    },
+    // reportComputersAttacksOnBoard() {
+    //   let boardGetsClicked = document.querySelector(".board2");
+    //   boardGetsClicked.addEventListener("click", function () {
+    //     //now let's create the one for the human board
+    //     setTimeout(() => {
+    //       let humanSquares = document.querySelectorAll(".squares");
+    //       humanSquares.forEach((sq) => {
+    //         if (missedShots.includes(sq.id)) {
+    //           sq.classList.add("missed-shot-from-computer");
+    //         }
+    //         if (sq.classList.contains("allied-ship-location")) {
+    //           sq.classList.add("coloured-in-from-computer");
+    //         }
+    //       });
+    //     }, 300);
+    //   });
+    // },
     // reportAllHumanPositionsAttacked() {
     //   let alltheGoddarnSquaresAgain = document.querySelectorAll(".squares");
     //   alltheGoddarnSquaresAgain.forEach((sq) => {
