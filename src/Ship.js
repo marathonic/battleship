@@ -1,3 +1,5 @@
+import onGameOver from "./onGameOver";
+
 export function Ship(shipType) {
   //   let hits = 0;
   let length;
@@ -47,6 +49,7 @@ export function Ship(shipType) {
       length--;
       previouslyHit.push(position);
       console.log("HIT IS BEING CALLED FROM SHIP");
+
       return;
     },
     isSunk() {

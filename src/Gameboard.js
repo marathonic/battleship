@@ -2,6 +2,7 @@ import { Ship } from "./Ship";
 import component from "./component";
 import coinToss, { randomOutOfTen } from "./coinToss";
 import { randomPositionsFor } from "./randomPositionsFor";
+import onGameOver from "./onGameOver";
 
 //<------- How to place ships
 //Needs to get input from the DOM.
@@ -101,6 +102,7 @@ export function Gameboard() {
         let actualCoordinateDiv = document.querySelector("#" + coordinates);
         if (actualCoordinateDiv.classList.contains("on-board")) {
           actualCoordinateDiv.classList.add("certain-hit");
+          onGameOver();
         }
         if (!actualCoordinateDiv.classList.contains("on-board")) {
           actualCoordinateDiv.classList.add("certain-miss");
@@ -261,6 +263,7 @@ export function Gameboard() {
               console.log("MATCH");
               let matchedSquare = e.target;
               matchedSquare.classList.add("coloured-in");
+              onGameOver();
             }
           });
           // console.log(e.target.id);
