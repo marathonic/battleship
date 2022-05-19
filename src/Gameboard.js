@@ -59,11 +59,38 @@ export function Gameboard() {
 
       // while (spotsTaken.includes(newPositionsToPlace))
       // <-- while newPositionsToPlace includes ANY coord that exists in spotsTaken, re-run the code
-      while (
-        spotsTaken.some((coord) => newPositionsToPlace.indexOf(coord) !== -1)
-      ) {
-        newPositionsToPlace = randomPositionsFor(typeOfShip);
+      if (spotsTaken.length > 0) {
+        spotsTaken.forEach((arrai) => {
+          while (newPositionsToPlace.some((val) => arrai.indexOf(val) !== -1)) {
+            newPositionsToPlace = randomPositionsFor(typeOfShip);
+          }
+          // newPositionsToPlace.forEach((positionInArr) => {
+
+          // if(arrai.includes())
+        });
+
+        // for (let i = 0; i < newPositionsToPlace.length; i++) {
+        //   //spotsTaken is an array of arrays, therefore we should be able to access each array:
+        //   let currentArrayOfSpotsTaken = [...spotsTaken[i]];
+        //   console.log(currentArrayOfSpotsTaken);
+        //   let currentNewPosition = newPositionsToPlace[i];
+        //   while (currentArrayOfSpotsTaken.includes(currentNewPosition)) {
+        //     currentNewPosition = randomPositionsFor(typeOfShip);
+        //   }
+        //   // while(currentArrayOfSpotsTaken.some((coord) => currentNewPosition.indexOf(coord) !== -1)){
+        //   //   newPositionsToPlace = randomPositionsFor(typeOfShip);
+        //   // }
+        // }
       }
+
+      // while (
+      //   // switcharoo'd order, testing placing unique positions
+      //   // spotsTaken.some((coord) => newPositionsToPlace.indexOf(coord) !== -1)
+      //   newPositionsToPlace.some((coord) => spotsTaken.indexOf(coord) !== -1)
+      //   //Update: Still sharing coords between ships. Try another way
+      // ) {
+      //   newPositionsToPlace = randomPositionsFor(typeOfShip);
+      // }
       spotsTaken.push(newPositionsToPlace);
       // shipsHere.push(newPositionsToPlace);
       console.log(spotsTaken);
