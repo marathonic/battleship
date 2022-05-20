@@ -1,7 +1,7 @@
 let paintedLocation = [];
 
 export default function lastPaintedCoords(newCoord) {
-  paintedLocation.push(newCoord); //<-- we push the id
+  paintedLocation.push(newCoord);
 }
 
 export function reportPaint() {

@@ -1,7 +1,7 @@
 import coinToss, { randomLimiterFor, randomOutOfTen } from "./coinToss";
 
 export const randomPositionsFor = (typeOfShip) => {
-  let coordsToSet = []; // <-- this is where we're storing all the coords we'll be returning
+  let coordsToSet = []; // <-- this stores all the coords that will be returned
   let shipLength;
   let horizontalNumberArray = [
     "1",
@@ -18,10 +18,6 @@ export const randomPositionsFor = (typeOfShip) => {
   let verticalLetterArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
   let orientation = coinToss();
-  //   let ySpot = randomOutOfTen();
-  //   let xSpot = randomOutOfTen();
-  // let verticalCoord = verticalLetterArray[ySpot];
-  // let horizontalCoord = horizontalNumberArray[xSpot];
 
   let ySpot;
   let xSpot;
@@ -51,9 +47,9 @@ export const randomPositionsFor = (typeOfShip) => {
       break;
   }
 
-  //Depending on its orientation, if horizontal, just add number on iteration. If vertical, iterate through the letters array.
+  //Depending on its orientation, add value on iteration.
+  //The limiters allow us to make sure we're not placing spots outside of the board
   if (orientation == "horizontal") {
-    //The limiter allows us to make sure we're not placing spots outside of the board
     xSpot = randomLimiterFor(typeOfShip);
     ySpot = randomOutOfTen();
 
@@ -61,13 +57,11 @@ export const randomPositionsFor = (typeOfShip) => {
       let newShipCoordinate =
         verticalLetterArray[ySpot] + horizontalNumberArray[xSpot];
       coordsToSet.push(newShipCoordinate);
-      //get sibling IDs here, not the DOM.
       xSpot++;
     }
   }
 
   if (orientation == "vertical") {
-    //The limiter allows us to make sure we're not placing spots outside of the board
     ySpot = randomLimiterFor(typeOfShip);
     xSpot = randomOutOfTen();
 
@@ -81,16 +75,3 @@ export const randomPositionsFor = (typeOfShip) => {
 
   return coordsToSet;
 };
-
-//
-//
-//we don't need the following here because we're checking for this in Gameboard, in generateComputerPositionsFor()
-//     while (previou.includes(computerShot)) {
-//       xMove = Math.floor(Math.random() * 10);
-//       yMove = Math.floor(Math.random() * 10);
-//       computerShot = vertical[yMove] + horizontal[xMove];
-//     }
-//     previou.push(computerShot); // <-- always adds a new position;
-//     return computerShot;
-//     // return cpuMoves[cpuMoves.length - 1];
-//   };

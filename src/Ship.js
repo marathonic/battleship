@@ -1,5 +1,4 @@
 export function Ship(shipType) {
-  //   let hits = 0;
   let length;
   let previouslyHit = [];
   let shipName;

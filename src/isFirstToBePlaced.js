@@ -4,4 +4,4 @@ export default function isFirstToBePlaced() {
   if (!images.some((img) => img.hasAttribute(".last-placed-picture")))
     return true;
   return false;
-} // <-- must be our destroyer;
+} // <-- must be our destroyer ship;

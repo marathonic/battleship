@@ -6,12 +6,8 @@ import createReadyBtn from "./createReadyBtn";
 
 export default function presentNextImage(arrayOfPictureIDs) {
   let nextImage = document.createElement("img");
-  // let dragBoi = document.querySelector('drag-div')
   let exampleOrigin = document.querySelector(".example-origin");
 
-  // xWing.classList.add("example-draggable-img");
-  // xWing.draggable = true;
-  // exampleOrigin.appendChild(xWing);
   switch (arrayOfPictureIDs[0]) {
     case "x-wing":
       nextImage.src = submarine;
@@ -53,8 +49,6 @@ export default function presentNextImage(arrayOfPictureIDs) {
       let starShipName = arrayOfPictureIDs[0];
       let classToRemove = "positioned-" + starShipName;
       if (e.target.parentNode.classList.contains(classToRemove)) {
-        //REMOVE THE STYLING FROM ALL OF THE TARGET'S ASSOCIATED POSITIONS!!! AS SOON AS WE DROP THE IMAGE BACK INTO A SQUARE, THE STYLING WILL BE RE-ADDED TO THE NEW POSITIONS
-
         let oldPositionsToRemove = document.querySelectorAll(
           "." + classToRemove
         );
@@ -68,13 +62,8 @@ export default function presentNextImage(arrayOfPictureIDs) {
       e.dataTransfer.setDragImage(e.target, 0, 0);
       console.log("grabbing image");
       e.currentTarget.classList.add("grabbing");
-      console.log(
-        "THIS IS NOT X-WING, BUT WHY ARE WE GIVING X-WING ITS OWN EVENTLISTENER FOR ONDRAGSTART() INSTEAD OF BUNDLING IT WITH THE OTHERS? Lets fix that"
-      );
     }
 
     onDragStart(e);
-    // currentlyBeingPlaced = e.target;
-    // currentlyBeingPlacedID = e.target.id;
   });
 }

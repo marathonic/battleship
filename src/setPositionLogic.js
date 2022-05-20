@@ -11,11 +11,6 @@ export default function setPositionLogic(shipType) {
     }
   }
 
-  //   filled.forEach((sq) => {
-  //     if (sq.classList.contains(".positioned-" + shipType)) {
-  //       positions.push(sq.id);
-  //     }
-  //   });
   console.log(positions);
   return positions;
 }
