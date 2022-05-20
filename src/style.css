@@ -8,6 +8,7 @@
     --sleekGrey: #DDDDDD;
     --aquaticBlue: #7FDBFF;
     --pirateNavy: #001f3f;
+    --darkNavy: #001f3f;
 }
 
 body {
@@ -23,8 +24,6 @@ body {
     grid-template-columns: 1fr 3fr 1fr;
     background-color: #001f3f;
     background-image: url(./img/cockpit.jpg);
-    /* TESTING DEVELOPMENT */
-    /* background-color: white; */
 }
 
 h1 {
@@ -32,37 +31,25 @@ h1 {
     justify-self: center;
     font-size: 47px;
     color: var(--cyberYellow);
-    /* TESTING DEVELOPMENT */
-    /* color: black;  */
 }
 
 .boards {
     margin-top: 30px;
     width: 30vw;
     height: 69vh;
-    /* border: solid whitesmoke 7px; */
 
     display: grid;
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
-    
-    /* TESTING DEVELOPMENT */
-    /* border: solid black 3px; */
 }
 
 .boards.board1 {
     
     width: 25vw;
     height: 35vh;
-    /* margin-left: 15vw ; */
-    /* margin-left: 0.5vw; */
-    /* grid-row: 3; */
-    /* grid-column: 2; */
-    /* justify-self: center; */
     
 }
 
-/* TO MAKE THE HUMAN HOLOGRAM LOOK MORE UNIFORM, REPLACE BELOW WITH: .board1 div:nth-child(10n+1)  */
 .boards div:nth-child(10n+1) {
     margin-left: 2vw;
     width: 5vw;
@@ -85,39 +72,19 @@ h1 {
 .boards div:nth-of-type(10) {
     border-top-right-radius: 100%;
 }
-/* 
-.boards div:last-of-type {
-    border-bottom-right-radius: 100%;
-    border: solid white 3px;
-} */
 
 div#J10.squares {
 
     border-bottom-right-radius: 100%;
-    /* border: solid white 3px; */
 }
-/* 
-.squares:last-of-type {
-    border-bottom-right-radius: 100%;
-    border: solid white 3px;
-
-} */
 
 
 
 .squares-computer:hover {
     background-color: rgba(255, 220, 0, 0.7);
 }
-/* 
-ATTENTION
-ATTENTION
--------------------------------------------------------
--------------------------------------------------------- */
-/* LMAOOOOOOOOOOOOOOOOOOOOOO WE DID THE WHOLE STYLING ON THE PLAYER'S BOARD
-IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
 
 .boards.board2{
-    /* margin-left: 15vw; */
     border:dashed 1px rgba(255, 220, 0, 0.1);
     border: none;
     border-top-left-radius: 10%;
@@ -129,7 +96,6 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
     
     grid-row:2;
     grid-column: 2;
-    /* border-start-end-radius: 70%; */
 }
 
 
@@ -146,8 +112,6 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
     border: solid cyan 1px;
     background-color: rgba(0, 255, 255, 0.3);
     cursor: pointer;
-    /* TESTING DEVELOPMENT */
-    /* border: solid black 1px; */
 }
 
 .squares-animation {
@@ -170,13 +134,6 @@ IT'S SUPPOSED TO BE ON THE COMPUTER'S BOARD!!! SWITCH THE STYLING NAMES */
     background-color: red;
 }
 
-/* NOTE ON VERTICAL POSITIONING ----------------------------------------> */
-/* WHEN WE PLACE OUR OWN SHIPS, IF WE'RE POSITIONING THE SHIP VERTICALLY, just :nth-child(10n) */
-/* WE want to select every other 10th square. So vertically we're selecting A2, B2, C2, etc */
-/* HOWEVER, WE'RE GETTING THE COORDINATES FROM THE LOGIC, NOT THE CSS! */
-/* So what we do is when we click the square, we get the index of its id in allSquaresXD nodeList with querySelectorAll, to do that, we first need to make an Array.from(allSquaresXD)*/
-/* And after we have the id in the Array, just loop over the original nodeList up to the length of the ship currently being placed.  */
-/* Each loop, we find the item at 0 + 10 */
 button {
     max-width: max-content;
     max-height: max-content;
@@ -188,8 +145,6 @@ button {
 }
 
 .coloured-in {
-    /* background-color: cyan; */
-    /* border-color: cyan; */
     background-color: darkred;
     border: none;
     animation: pulse 5s infinite;
@@ -239,6 +194,14 @@ button {
     display: grid;
     flex-wrap: wrap;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    border: none;
+}
+
+.deploy-ships-btn:hover {
+    color: var(--darkNavy);
+    border: none;
+    box-shadow: 0 5px 15px var(--cyberYellow);
 }
 
 .rotate-btn {
@@ -252,9 +215,6 @@ button {
     color: rgb(9, 9, 75);
     max-width: 70vw;
     height: fit-content;
-/*     
-    display: grid;
-    flex-wrap: wrap; */
     cursor: pointer;
 }
 
@@ -262,10 +222,6 @@ button {
     transform: rotate(-0.25turn);
 }
 
-#rotate-button {
-    /* background-color: whitesmoke;
-    justify-items: center; */
-}
 
 .invisible {
     display: none;
@@ -293,17 +249,8 @@ button {
     grid-row: 2;
     grid-column: 2;
     justify-content: center;
-    /* z-index: inherit; */
 }
 
-.absolute-position {
-    /* z-index: 10; */
-}
-
-/* ////////////// FIND out if there's a div that is only present when there is a ship being presented */
-/* If there is, that is probably what is pushing the board1 left and right */
-
-/* Testing draggable CSS thing from digitalocean */
 
 .example-parent {
     border: 2px solid #DFA612;
@@ -314,26 +261,18 @@ button {
   }
   
   .example-origin {
-    /* flex-basis: 100%; */
-    /* flex-grow: 1; */
 
-    /* display: flex; */
     position: absolute;
     justify-content: center;
   }
   
   .example-draggable {
     background-color: #4AAE9B;
-    /* background: url('./img/xwing-sideview2-removebg-preview.png') no-repeat; */
     font-weight: normal;
-    /* margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 10px; */
+    
   }
 
   .example-draggable-img {
-    /* background: url('./img/xwing.png') no-repeat; */
-    /* font-weight: normal; */
     
     max-width: 500px;
     max-height: 420px;
@@ -342,24 +281,19 @@ button {
     justify-items: center;
     align-self: center;
     margin-top: -30%;
-    /* margin-bottom: 10px;
-    margin-top: 10px;
-    padding: 10px; */
+    
   }
 
   #battleship.example-draggable-img {
-      /* transform-origin: 0; */
       max-width: 30%;
       max-height: 30%;
       margin-top: -40%;
-      /* padding-left: 20%; */
   }
 
   #battleship.grabbing {
       margin-top: -38%;
       max-width: 16%;
       max-height: 16%;
-      /* opacity: 70%; */
   }
 
   #carrier.example-draggable-img {
@@ -374,17 +308,10 @@ button {
       max-height: 30%;
   }
 
-  #x-wing {
-      /* background: none; */
-    /* transform: translate(0,0); */
-
-  }
 
   .grabbing {
       max-width: 50%;
       max-height: 20%;
-      /* background: none; */
-    /* transform: translate(0,0); */
   }
 
   .squares > .grabbing {
@@ -420,7 +347,6 @@ button {
   
   div.on-board > #battleship {
       transform: rotate(0deg);
-      /* justify-self: center; */
       width: 100%;
       height: 400%;
       z-index: 99;
@@ -430,12 +356,8 @@ button {
   div.on-board > #battleship.rotate-vertical {
       transform: rotate(270deg);
       transform-origin: top center;
-    /* transform-origin: 0;  */
-    /* margin-bottom: -300%; */
-    /* padding-right: 20px; */
       width: 96%;
       height: 500%;
-      /* z-index: 99; */
       opacity: 99%;
   }
 
@@ -453,25 +375,12 @@ button {
       position: relative;
   }
 
-  div.on-board:has #carrier.rotate-vertical{
-  }
-
-
-  /* .squares.placement-stage.on-board > #submarine {
-      opacity: 99%;
-  } */
-
-  /* .grabbing#submarine */
-  
   
   .example-dropzone {
     background-color: #6DB65B;
     background-color: rgba(255, 255, 255, 0.7);
-    /* flex-basis: 100%; */
-    /* flex-grow: 1; */
     width: 10%;
     height: 20%;
-    /* padding: 10px; */
   }
 
   .example-parent {
@@ -569,8 +478,7 @@ button {
   }
 
   .victory-modal {
-      /* background-color: palevioletred; */
-      background-color: #001f3f;
+      background-color: var(--darkNavy);
       display: block;
       width: 100vw;
       height: 100vh;
@@ -586,21 +494,9 @@ button {
   }
 
 
-  /* /////
-
-  HERE BEGINS THE IMPLEMENTATION OF THE STOLEN CODE FROM 1stwebdesigner.com/trippy-css-distortion-effects/ 
-
-
-  ////
-  */
 
   
 
-
-
-  /* CONTINUE HERE!!!!!!!!!! FInd a way to give this class to the squares at the moment that 
-  we click the READY button, and then wait 1s for the animation to finish before removing the class
-  and then adding the fade class as it's repositioned below to make it look like it's appearing  */
   .fade{ 
       /* animation: glitch 2s linear 2s; */
       animation: fade 1s linear 0s;
@@ -627,51 +523,14 @@ button {
       100% { opacity: 1}
   } 
   
-  .glitch:before,
-  .glitch:after{
-    content: attr(title);
-    position: absolute;
-    left: 0;
-  }
-  
-  .glitch:before{
-    animation: glitchTop 1s linear infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
-  }
-  
-  @keyframes glitchTop{
-    2%,64%{
-      transform: translate(2px,-2px);
-    }
-    4%,60%{
-      transform: translate(-2px,2px);
-    }
-    62%{
-      transform: translate(13px,-1px) skew(-13deg); 
-    }
-  }
-  
+
+
   .squares.placement-stage:after{
     animation: glitchBotom 1.5s linear infinite;
     clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
   }
   
-  @keyframes glitchBotom{
-    2%,64%{
-      transform: translate(-2px,0);
-    }
-    4%,60%{
-      transform: translate(-2px,0);
-    }
-    62%{
-      transform: translate(-22px,5px) skew(21deg); 
-    }
-  }
-/* 
-  and here ends that implementation
-  //////////////// */
 
 
 @font-face {
