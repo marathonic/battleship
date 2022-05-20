@@ -1,5 +1,4 @@
 import getLogicLengthFor from "./getLogicLengthOf";
-import getLengthOf from "./getNextLengthToBePlaced";
 
 export default function coinToss() {
   let num = Math.floor(Math.random() * 2);
@@ -18,12 +17,4 @@ export function randomForSubmarine() {
 export function randomLimiterFor(typeOfShip) {
   let length = getLogicLengthFor(typeOfShip);
   return Math.floor(Math.random() * length);
-  //   switch (length) {
-  //       case value:
-
-  //           break;
-
-  //       default:
-  //           break;
-  //   }
 }

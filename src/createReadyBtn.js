@@ -1,4 +1,3 @@
-import Game from "./Game";
 import generateComputerHologram from "./generateComputerHologram";
 import readyBtnClick, { repositionBoardOne } from "./repositionBoard";
 
@@ -12,7 +11,7 @@ export default function createReadyBtn() {
     readyBtnClick();
     removeReadyBtn();
     repositionBoardOne();
-    generateComputerHologram(); // <--- attach board2
+    generateComputerHologram();
   });
   let btnContainerDiv = document.querySelector("#btn-container-div");
   btnContainerDiv.appendChild(readyBtn);

@@ -1,4 +1,3 @@
-import getNextLengthToBePlaced from "./getNextLengthToBePlaced";
 import paintLength from "./paintLength";
 
 export default function highlightOnHover(imageIdee, squareIdee, orientation) {
