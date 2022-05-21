@@ -63,8 +63,6 @@ export default function generateHumanHologram() {
       // Get the next image:
       markedAsPlaced.push(id);
       if (markedAsPlaced.length > 1) markedAsPlaced.shift();
-      console.log(markedAsPlaced[0]);
-      console.log(e.target.id);
       let imgID = markedAsPlaced[0];
       let sqID = e.target.id;
       paintLength(imgID, sqID);

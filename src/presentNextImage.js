@@ -60,7 +60,6 @@ export default function presentNextImage(arrayOfPictureIDs) {
 
       e.dataTransfer.setData("text/plain", e.target.id);
       e.dataTransfer.setDragImage(e.target, 0, 0);
-      console.log("grabbing image");
       e.currentTarget.classList.add("grabbing");
     }
 

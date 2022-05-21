@@ -27,9 +27,8 @@ export default function dragShipImages() {
 }
 
 function onDragStart(e) {
-  //loop over the coordinates with paint on them, and remove the styling
   if (e.currentTarget.parentNode.classList.contains("squares")) {
-    // <-- translation: 'If the image we're dragging has already been placed in the gameboard'
+    // <-- 'If the image we're dragging has already been placed in the gameboard'
 
     let oldPaint = reportPaint();
     for (let i = 0; i < oldPaint.length; i++) {
@@ -40,7 +39,6 @@ function onDragStart(e) {
   }
   e.dataTransfer.setData("text/plain", e.target.id);
   e.dataTransfer.setDragImage(e.target, 0, 0);
-  console.log("grabbing image");
   if (e.currentTarget.classList.contains("grabbing")) return;
   e.currentTarget.classList.add("grabbing");
 }

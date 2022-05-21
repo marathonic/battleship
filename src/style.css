@@ -139,10 +139,6 @@ button {
     max-height: max-content;
 }
 
-.hello {
-    color: red;
-    font-size: 100px;
-}
 
 .coloured-in {
     background-color: darkred;
@@ -482,7 +478,7 @@ button {
       display: block;
       width: 100vw;
       height: 100vh;
-      opacity: 0.9;
+      opacity: 0.6;
     position: absolute;
     cursor: pointer;
   }
@@ -502,6 +498,10 @@ button {
       animation: fade 1s linear 0s;
   }
   
+  .squares.fade {
+      cursor: not-allowed;
+  }
+
   @keyframes glitch{
 
     0% { opacity: 1}

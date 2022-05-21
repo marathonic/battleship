@@ -19,8 +19,6 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
   let letterCells = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
   if (orientation === "vertical") {
-    console.log("orientation is " + orientation);
-
     let lengthToFill = getNextLengthToBePlaced(imageIdee);
     let num = Number(squareIdee.substring(1));
     let theLetter = squareIdee.charAt(0);
@@ -38,8 +36,6 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
       let letter = letterCells[indexOfLetter];
       let coordData = letter + num;
       let coordToPaint = document.getElementById(coordData);
-      console.log(coordData);
-      console.log(coordToPaint);
       let classToAdd = "positioned-" + imageIdee;
       coordToPaint.classList.add(classToAdd);
       coordToPaint.classList.toggle("on-board");
@@ -58,7 +54,6 @@ export default function paintLength(imageIdee, squareIdee, orientation) {
     //do not proceed if horizontal overflow
 
     if (num + lengthToFill - 1 > 10) {
-      console.log(`${num + lengthToFill} is larget than 10`);
       return false;
     }
 

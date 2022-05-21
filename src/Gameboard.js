@@ -96,7 +96,6 @@ export function Gameboard() {
       try {
         //<-- if position has been hit before and was a miss, hit() => false
         if (missedShots.includes(coordinates)) {
-          // console.log("cant hit same position twice");
           return false;
         }
         if (registeredHitsOnHuman.includes(coordinates)) return false;
@@ -150,7 +149,6 @@ export function Gameboard() {
           let allCoordinatesOnMapArray = allCoordinatesOnMap; // <-- why am I storing a reference here?
           allCoordinatesOnMapArray.forEach((arr) => {
             if (arr.includes(e.target.id)) {
-              console.log("MATCH");
               let matchedSquare = e.target;
               matchedSquare.classList.add("coloured-in");
               onGameOver();
@@ -194,6 +192,9 @@ export function Gameboard() {
       }
     },
     getAllCoordinatesOnMap() {
+      console.log(
+        "MESSAGE FROM COMMANDER DATA: \n Commander, Lt. Commander LaForge has repurposed the corbo-handwavium drive to reveal enemy coordinates..."
+      );
       console.table(allCoordinatesOnMap);
     },
   };

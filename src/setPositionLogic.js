@@ -11,6 +11,5 @@ export default function setPositionLogic(shipType) {
     }
   }
 
-  console.log(positions);
   return positions;
 }
